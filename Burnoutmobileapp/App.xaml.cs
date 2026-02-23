@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Burnoutmobileapp.Views;
 
 namespace Burnoutmobileapp;
 
@@ -11,6 +11,6 @@ public partial class App : Application
 
     protected override Window CreateWindow(IActivationState? activationState)
     {
-        return new Window(new AppShell());
+        return new Window(new LoginPage());
     }
 }

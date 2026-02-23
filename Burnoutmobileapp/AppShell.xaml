@@ -3,12 +3,18 @@
     x:Class="Burnoutmobileapp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Burnoutmobileapp"
-    Title="Burnoutmobileapp">
+    xmlns:views="clr-namespace:Burnoutmobileapp.Views"
+    Title="Call of Phoenix"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <!-- Pages with custom footer navigation -->
+    <ShellContent Route="home" ContentTemplate="{DataTemplate views:HomePage}" />
+    <ShellContent Route="events" ContentTemplate="{DataTemplate views:EventsPage}" />
+    <ShellContent Route="coach" ContentTemplate="{DataTemplate views:CoachPage}" />
+    <ShellContent Route="profile" ContentTemplate="{DataTemplate views:ProfilePage}" />
+    <ShellContent Route="imc" ContentTemplate="{DataTemplate views:ImcCalculatorPage}" />
+    <ShellContent Route="editprofile" ContentTemplate="{DataTemplate views:EditProfilePage}" />
 
 </Shell>

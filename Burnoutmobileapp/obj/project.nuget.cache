@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xKBRx3fofio=",
+  "dgSpecHash": "Nk4EX3r/8/Y=",
   "success": true,
   "projectFilePath": "/Users/matias/RiderProjects/Burnoutmobileapp/Burnoutmobileapp/Burnoutmobileapp.csproj",
   "expectedPackageFiles": [
+    "/Users/matias/.nuget/packages/communitytoolkit.mvvm/8.4.0/communitytoolkit.mvvm.8.4.0.nupkg.sha512",
     "/Users/matias/.nuget/packages/googlegson/2.13.1.1/googlegson.2.13.1.1.nupkg.sha512",
     "/Users/matias/.nuget/packages/microsoft.extensions.configuration/10.0.0/microsoft.extensions.configuration.10.0.0.nupkg.sha512",
     "/Users/matias/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.0/microsoft.extensions.configuration.abstractions.10.0.0.nupkg.sha512",
