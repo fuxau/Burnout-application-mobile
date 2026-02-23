@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.ImcCalculatorPage"
+             BackgroundColor="#231A0F"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header -->
+        <Grid Padding="16" ColumnDefinitions="Auto,*" BackgroundColor="#231A0F">
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="←" FontSize="24" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+            <Label Grid.Column="1" Text="CALCULATEUR IMC" FontSize="16" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Margin="-40,0,0,0"/>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="24">
+                
+                <!-- Genre Selection -->
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Genre" FontSize="14" TextColor="#9CA3AF"/>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                        <Border x:Name="MaleButton" StrokeThickness="2" Stroke="#FF8C00" StrokeShape="RoundRectangle 12" BackgroundColor="#FF8C00" Padding="16,12">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnMaleTapped"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+                                <Label Text="♂" FontSize="18" TextColor="White"/>
+                                <Label x:Name="MaleLabel" Text="Homme" FontSize="16" FontAttributes="Bold" TextColor="White" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                        <Border x:Name="FemaleButton" Grid.Column="1" StrokeThickness="2" Stroke="#3E301E" StrokeShape="RoundRectangle 12" BackgroundColor="Transparent" Padding="16,12">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFemaleTapped"/>
+                            </Border.GestureRecognizers>
+                            <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+                                <Label Text="♀" FontSize="18" TextColor="#9CA3AF"/>
+                                <Label x:Name="FemaleLabel" Text="Femme" FontSize="16" TextColor="#9CA3AF" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- Hauteur Slider -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315" Padding="20">
+                    <VerticalStackLayout Spacing="16">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Hauteur" FontSize="16" TextColor="#9CA3AF"/>
+                            <HorizontalStackLayout Grid.Column="1" Spacing="4">
+                                <Label x:Name="HeightValue" Text="175" FontSize="28" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="cm" FontSize="14" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,4"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                        <Slider x:Name="HeightSlider" Minimum="100" Maximum="220" Value="175" MinimumTrackColor="#FF8C00" MaximumTrackColor="#3E301E" ThumbColor="#FF8C00" ValueChanged="OnHeightChanged"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Poids Slider -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315" Padding="20">
+                    <VerticalStackLayout Spacing="16">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Poids" FontSize="16" TextColor="#9CA3AF"/>
+                            <HorizontalStackLayout Grid.Column="1" Spacing="4">
+                                <Label x:Name="WeightValue" Text="70" FontSize="28" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="kg" FontSize="14" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,4"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                        <Slider x:Name="WeightSlider" Minimum="30" Maximum="200" Value="70" MinimumTrackColor="#FF8C00" MaximumTrackColor="#3E301E" ThumbColor="#FF8C00" ValueChanged="OnWeightChanged"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Age Slider -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315" Padding="20">
+                    <VerticalStackLayout Spacing="16">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Âge" FontSize="16" TextColor="#9CA3AF"/>
+                            <HorizontalStackLayout Grid.Column="1" Spacing="4">
+                                <Label x:Name="AgeValue" Text="25" FontSize="28" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="ans" FontSize="14" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,4"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                        <Slider x:Name="AgeSlider" Minimum="10" Maximum="100" Value="25" MinimumTrackColor="#FF8C00" MaximumTrackColor="#3E301E" ThumbColor="#FF8C00" ValueChanged="OnAgeChanged"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- IMC Result -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315" Padding="24">
+                    <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                        <Label Text="VOTRE IMC" FontSize="12" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        <Label x:Name="ImcValue" Text="22.9" FontSize="56" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                        <Label x:Name="ImcStatus" Text="Normal" FontSize="18" FontAttributes="Bold" TextColor="#22C55E" HorizontalOptions="Center"/>
+                        
+                        <!-- IMC Scale -->
+                        <Grid Margin="0,16,0,0" HeightRequest="8" ColumnDefinitions="*,*,*,*">
+                            <BoxView BackgroundColor="#3B82F6" CornerRadius="4,0,0,4"/>
+                            <BoxView Grid.Column="1" BackgroundColor="#22C55E"/>
+                            <BoxView Grid.Column="2" BackgroundColor="#F59E0B"/>
+                            <BoxView Grid.Column="3" BackgroundColor="#EF4444" CornerRadius="0,4,4,0"/>
+                        </Grid>
+                        
+                        <!-- IMC Indicator -->
+                        <Grid Margin="0,-4,0,0">
+                            <BoxView x:Name="ImcIndicator" BackgroundColor="White" WidthRequest="12" HeightRequest="12" CornerRadius="6" HorizontalOptions="Start" Margin="120,0,0,0"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <BoxView HeightRequest="40" Color="Transparent"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

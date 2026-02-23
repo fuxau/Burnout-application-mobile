@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.EventsPage"
+             BackgroundColor="#231A0F"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*,Auto">
+    <Grid Grid.Row="0" RowDefinitions="Auto,Auto,*">
+        
+        <!-- Header -->
+        <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" BackgroundColor="#231A0F">
+            <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 20" BackgroundColor="#2E2315" HeightRequest="40" WidthRequest="40">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="←" FontSize="20" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+            <VerticalStackLayout Grid.Column="1" Margin="12,0" VerticalOptions="Center">
+                <Label Text="Événements" FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                <Label Text="CALL OF PHOENIX" FontSize="10" TextColor="#9CA3AF"/>
+            </VerticalStackLayout>
+            <Border Grid.Column="2" StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 20" BackgroundColor="#2E2315" HeightRequest="40" WidthRequest="40">
+                <Label Text="🔔" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+        </Grid>
+
+        <!-- Category Filters -->
+        <ScrollView Grid.Row="1" Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Padding="16,0,0,16">
+            <HorizontalStackLayout Spacing="12">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="#FF8C00" Padding="16,10" HeightRequest="40">
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="⊞" FontSize="14" TextColor="White"/>
+                        <Label Text="Tous" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 20" BackgroundColor="#2E2315" Padding="16,10" HeightRequest="40">
+                    <Label Text="Paris" FontSize="14" TextColor="#9CA3AF"/>
+                </Border>
+                <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 20" BackgroundColor="#2E2315" Padding="16,10" HeightRequest="40">
+                    <Label Text="Annecy" FontSize="14" TextColor="#9CA3AF"/>
+                </Border>
+                <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 20" BackgroundColor="#2E2315" Padding="16,10" HeightRequest="40">
+                    <Label Text="Yoga" FontSize="14" TextColor="#9CA3AF"/>
+                </Border>
+                <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 20" BackgroundColor="#2E2315" Padding="16,10" HeightRequest="40">
+                    <Label Text="Cardio" FontSize="14" TextColor="#9CA3AF"/>
+                </Border>
+                <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 20" BackgroundColor="#2E2315" Padding="16,10" HeightRequest="40" Margin="0,0,16,0">
+                    <Label Text="Force" FontSize="14" TextColor="#9CA3AF"/>
+                </Border>
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <!-- Events List -->
+        <ScrollView Grid.Row="2" Padding="16,0">
+            <VerticalStackLayout Spacing="16">
+                
+                <!-- Event 1: Morning Yoga Flow -->
+                <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315">
+                    <Grid RowDefinitions="160,*">
+                        <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuBQFy95_ingZGKzx-cCcbukWIdy3e1V-3dKezBXyT1g650wtyiYUNabHw1QHIkxb0xqEcffYjsoC31ZjpNBmmf7anEDLQ2U3tYlG3kiiqCQ-vgsiDfCMshw1tyXrMz78bMrEzQ28tQd2Pla2alOl2KGznY8wjwtRTcR2w6wBL2z3aYPedpRtvLrDcUC3aLr47V-X8HJ9sICxyV5cINk9Wc4o_50jZmN48lpGmi0WHPrzLt2lqgintBQxs88mhBGhcOsBa_DZ3WqnYUT" Aspect="AspectFill" HeightRequest="160"/>
+                        <Border Margin="8" StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#99000000" Padding="8,4" HorizontalOptions="Start" VerticalOptions="Start">
+                            <Label Text="YOGA" FontSize="10" FontAttributes="Bold" TextColor="White"/>
+                        </Border>
+                        <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="8">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="YOGA &amp; FLEXIBILITÉ" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#FF8C001A" Padding="8,4">
+                                    <Label Text="15€" FontSize="12" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                </Border>
+                            </Grid>
+                            <Label Text="Morning Yoga Flow" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                            <HorizontalStackLayout Spacing="16">
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="📅" FontSize="14" TextColor="#FF8C00"/>
+                                    <Label Text="12 Oct • 10:00" FontSize="14" TextColor="#9CA3AF"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="📍" FontSize="14" TextColor="#FF8C00"/>
+                                    <Label Text="Paris, Salle A" FontSize="14" TextColor="#9CA3AF"/>
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                            <Grid ColumnDefinitions="*,Auto" Margin="0,8,0,0">
+                                <Label Text="+12 participants" FontSize="12" TextColor="#6B7280" VerticalOptions="Center"/>
+                                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#FFFFFF0D" HeightRequest="32" WidthRequest="32">
+                                    <Label Text="›" FontSize="20" TextColor="#9CA3AF" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- Event 2: Urban Cross Training -->
+                <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315">
+                    <Grid RowDefinitions="160,*">
+                        <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuCIDz6uARmNX2mf6bjr2OggXNnG7nMru03wXPIE1Ow1JZkbIyPgU8wZslMHeam_el3QtGxzFiYSH_f0I-j0245CAuvyL33hRUgcWKuWcGqcab4PGEsYQ1US4QvHgo1Dn0BBB_eNSAIhZxleOHoka0SttfIagm1W9dg0KR0FeFOrsNjzEgT_6NFPMkFUk3sM--V6Do123o6nX5_ORRNvxoYhY6NrZE1UCcKtFHx0MF7Q4UfFOVHmy5hW3WDufvbK-aWIMUymB5kJnA9k" Aspect="AspectFill" HeightRequest="160"/>
+                        <Border Margin="8" StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#99000000" Padding="8,4" HorizontalOptions="Start" VerticalOptions="Start">
+                            <Label Text="CARDIO" FontSize="10" FontAttributes="Bold" TextColor="White"/>
+                        </Border>
+                        <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="8">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="BOOTCAMP EXTÉRIEUR" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#22C55E1A" Padding="8,4">
+                                    <Label Text="Gratuit" FontSize="12" FontAttributes="Bold" TextColor="#22C55E"/>
+                                </Border>
+                            </Grid>
+                            <Label Text="Urban Cross Training" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                            <HorizontalStackLayout Spacing="16">
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="📅" FontSize="14" TextColor="#FF8C00"/>
+                                    <Label Text="14 Oct • 18:30" FontSize="14" TextColor="#9CA3AF"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="📍" FontSize="14" TextColor="#FF8C00"/>
+                                    <Label Text="Annecy, Le Pâquier" FontSize="14" TextColor="#9CA3AF"/>
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                            <Grid ColumnDefinitions="*,Auto" Margin="0,8,0,0">
+                                <Label Text="+28 participants" FontSize="12" TextColor="#6B7280" VerticalOptions="Center"/>
+                                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#FFFFFF0D" HeightRequest="32" WidthRequest="32">
+                                    <Label Text="›" FontSize="20" TextColor="#9CA3AF" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- Event 3: Technique Powerlifting -->
+                <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315">
+                    <Grid RowDefinitions="160,*">
+                        <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuCmDxM0SYPbZ_8EFhZA0SZrGj5QuZfkRMYgjZ94zbZuJVrUAGVce8_2LSzpEcK5xEy-wMvMBC7kMfedwhnuvdRSjHoTGHCSsMZhOqbi2LfRdoK8wB3b3-7pHLjDyIzU3RWvmrMcagGNP-99qmEK106dQtojGcFqWUEf2S1bS1-JmyGxh2-fZzp1I6mZC9vevjMDRQ2zZcH9iKhS3pB2kew2ps8lke6KXGSWBy9goLW3XeiIgU9VJD-jIwK7I0wEVAVkngvBMdyax13m" Aspect="AspectFill" HeightRequest="160"/>
+                        <Border Margin="8" StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#99000000" Padding="8,4" HorizontalOptions="Start" VerticalOptions="Start">
+                            <Label Text="FORCE" FontSize="10" FontAttributes="Bold" TextColor="White"/>
+                        </Border>
+                        <VerticalStackLayout Grid.Row="1" Padding="16" Spacing="8">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="MASTERCLASS" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#FF8C001A" Padding="8,4">
+                                    <Label Text="30€" FontSize="12" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                </Border>
+                            </Grid>
+                            <Label Text="Technique Powerlifting" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                            <HorizontalStackLayout Spacing="16">
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="📅" FontSize="14" TextColor="#FF8C00"/>
+                                    <Label Text="20 Oct • 14:00" FontSize="14" TextColor="#9CA3AF"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="📍" FontSize="14" TextColor="#FF8C00"/>
+                                    <Label Text="Paris, Zone Force" FontSize="14" TextColor="#9CA3AF"/>
+                                </HorizontalStackLayout>
+                            </HorizontalStackLayout>
+                            <Grid ColumnDefinitions="*,Auto" Margin="0,8,0,0">
+                                <Label Text="8 places restantes" FontSize="12" TextColor="#6B7280" VerticalOptions="Center"/>
+                                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#FFFFFF0D" HeightRequest="32" WidthRequest="32">
+                                    <Label Text="›" FontSize="20" TextColor="#9CA3AF" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- Bottom Spacing -->
+                <BoxView HeightRequest="20" Color="Transparent"/>
+                
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+    <!-- Custom Footer Tab Bar -->
+    <Border Grid.Row="1" BackgroundColor="#1E160D" StrokeThickness="0" Padding="0">
+        <Grid ColumnDefinitions="*,*,*,*,*" HeightRequest="88" Padding="0,0,0,20">
+            <!-- Accueil -->
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccueilTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="🏠" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Accueil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Agenda - Active -->
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <Label Text="📅" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Agenda" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Add Button (Center) -->
+            <Grid Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#FF8C00" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
+                    <Label Text="+" FontSize="32" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
+            </Grid>
+            
+            <!-- Coach -->
+            <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCoachTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="💪" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Coach" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Profil -->
+            <VerticalStackLayout Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfilTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="👤" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Profil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.ProfilePage"
+             BackgroundColor="#231A0F"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*,Auto">
+    <Grid Grid.Row="0" RowDefinitions="Auto,*">
+        
+        <!-- Header -->
+        <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" BackgroundColor="Transparent">
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="←" FontSize="20" TextColor="#FFFFFF80" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+            <Label Grid.Column="1" Text="Profil" FontSize="20" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="⚙️" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="16" Spacing="24">
+                
+                <!-- Profile Header -->
+                <VerticalStackLayout Spacing="16" HorizontalOptions="Center">
+                    <!-- Avatar -->
+                    <Grid HorizontalOptions="Center">
+                        <Border StrokeThickness="4" StrokeShape="RoundRectangle 64" HeightRequest="128" WidthRequest="128" Stroke="#FF8C00">
+                            <Border StrokeThickness="4" Stroke="#231A0F" StrokeShape="RoundRectangle 60" BackgroundColor="#2F2214">
+                                <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuAybvQxmSQuXivTHv21xeh35fRUsdZQO5YhYuIGnEFn2T0yfV1kUDli6rwsnHR6qB6x-MDQLlb1wk7v-j0zr9zjDuCwiBGGmba5gj3hd0xbwSiYPzgIDqfkPCgvBzBe5MqOCHTN1eGBTZ6V-O8oR92L9PaCCnwxa0bPyFcobtyQUTJfLGq9-MC1XLVQ7YCqFJRq3Q1rukSdJtM09ZVmBAG45WiCZe1-eD0onHoxM0uWjn6xkKZgigPDEfhNIv_mO2cjjwEwnj79E3T7" Aspect="AspectFill"/>
+                            </Border>
+                        </Border>
+                        <Border StrokeThickness="3" Stroke="#231A0F" StrokeShape="RoundRectangle 18" BackgroundColor="#FF8C00" HeightRequest="36" WidthRequest="36" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,4,4">
+                            <Label Text="📷" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Border>
+                    </Grid>
+                    
+                    <!-- Name & Membership -->
+                    <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                        <Label Text="Thomas Anderson" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                        <Border StrokeThickness="1" Stroke="#FF8C0050" StrokeShape="RoundRectangle 12" BackgroundColor="#FF8C0020" Padding="12,6" HorizontalOptions="Center">
+                            <Label Text="PHOENIX ELITE" FontSize="12" FontAttributes="Bold" TextColor="#FF8C00"/>
+                        </Border>
+                        <Label Text="Membre depuis 2021" FontSize="14" TextColor="#FFFFFF60" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+
+                <!-- Personal Information Section -->
+                <VerticalStackLayout Spacing="12">
+                    <HorizontalStackLayout Spacing="8" Padding="4,0">
+                        <Label Text="👤" FontSize="16"/>
+                        <Label Text="Informations Personnelles" FontSize="16" FontAttributes="Bold" TextColor="#FFFFFFE6"/>
+                    </HorizontalStackLayout>
+                    
+                    <Border StrokeThickness="1" Stroke="#FFFFFF0D" StrokeShape="RoundRectangle 16" BackgroundColor="#2F2214">
+                        <VerticalStackLayout>
+                            <!-- Email -->
+                            <Grid Padding="20,16" ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="EMAIL" FontSize="10" TextColor="#FFFFFF66"/>
+                                    <Label Text="thomas.anderson@example.com" FontSize="16" TextColor="White"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1" Text="🔒" FontSize="16" Opacity="0.3" VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#FFFFFF0D"/>
+                            <!-- Phone -->
+                            <Grid Padding="20,16" ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="TÉLÉPHONE" FontSize="10" TextColor="#FFFFFF66"/>
+                                    <Label Text="+33 6 12 34 56 78" FontSize="16" TextColor="White"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1" Text="Modifier" FontSize="14" TextColor="#FF8C00" VerticalOptions="Center"/>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#FFFFFF0D"/>
+                            <!-- Address -->
+                            <Grid Padding="20,16" ColumnDefinitions="*">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label Text="ADRESSE" FontSize="10" TextColor="#FFFFFF66"/>
+                                    <Label Text="15 Rue de la Paix, 75002 Paris" FontSize="16" TextColor="White"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Sports Data Section -->
+                <VerticalStackLayout Spacing="12">
+                    <HorizontalStackLayout Spacing="8" Padding="4,0">
+                        <Label Text="💪" FontSize="16"/>
+                        <Label Text="Données Sportives" FontSize="16" FontAttributes="Bold" TextColor="#FFFFFFE6"/>
+                    </HorizontalStackLayout>
+                    
+                    <!-- Age & Gender Row -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                        <Border StrokeThickness="1" Stroke="#FF8C0050" StrokeShape="RoundRectangle 16" BackgroundColor="#2F2214" Padding="16">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAgeTapped"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="ÂGE" FontSize="10" TextColor="#FFFFFF66"/>
+                                    <Label Grid.Column="1" Text="✏️" FontSize="14" TextColor="#FF8C00"/>
+                                </Grid>
+                                <HorizontalStackLayout Spacing="4">
+                                    <Label x:Name="AgeLabel" Text="29" FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                                    <Label Text="ans" FontSize="14" TextColor="#FFFFFF66" VerticalOptions="End" Margin="0,0,0,2"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="1" StrokeThickness="1" Stroke="#FF8C0050" StrokeShape="RoundRectangle 16" BackgroundColor="#2F2214" Padding="16">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGenreTapped"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="GENRE" FontSize="10" TextColor="#FFFFFF66"/>
+                                    <Label Grid.Column="1" Text="✏️" FontSize="14" TextColor="#FF8C00"/>
+                                </Grid>
+                                <Label x:Name="GenreLabel" Text="Homme" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                    
+                    <!-- Blood Type & BMI Row -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                        <Border StrokeThickness="1" Stroke="#FF8C0050" StrokeShape="RoundRectangle 16" BackgroundColor="#2F2214" Padding="16">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnBloodTypeTapped"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="GROUPE SANGUIN" FontSize="10" TextColor="#FFFFFF66"/>
+                                    <Label Grid.Column="1" Text="✏️" FontSize="14" TextColor="#FF8C00"/>
+                                </Grid>
+                                <Label x:Name="BloodTypeLabel" Text="O+" FontSize="24" FontAttributes="Bold" TextColor="#FF8C00"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="1" StrokeThickness="1" Stroke="#FF8C0050" StrokeShape="RoundRectangle 16" BackgroundColor="#2F2214" Padding="16">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnImcTapped"/>
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="OUTILS" FontSize="10" TextColor="#FFFFFF66"/>
+                                    <Label Grid.Column="1" Text="⚖️" FontSize="16" TextColor="#FF8C00"/>
+                                </Grid>
+                                <HorizontalStackLayout>
+                                    <Label Text="Calculateur IMC" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+                                    <Label Text=" ›" FontSize="16" TextColor="#FFFFFF33"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                    
+                    <!-- Favorite Sport -->
+                    <Border StrokeThickness="1" Stroke="#FFFFFF0D" StrokeShape="RoundRectangle 16" BackgroundColor="#2F2214" Padding="20,16">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="DISCIPLINE FAVORITE (SPORT)" FontSize="10" TextColor="#FFFFFF66"/>
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="🤸" FontSize="18" Opacity="0.5"/>
+                                <Label Text="Crossfit &amp; Powerlifting" FontSize="18" TextColor="White"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Action Buttons -->
+                <VerticalStackLayout Spacing="16" Margin="0,8,0,20">
+                    <Button Text="💾  Enregistrer" BackgroundColor="#FF8C00" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="56" CornerRadius="12"/>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+                        <Label Text="🚪" FontSize="14" Opacity="0.5"/>
+                        <Label Text="Déconnexion" FontSize="14" TextColor="#FFFFFF50"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+    <!-- Custom Footer Tab Bar -->
+    <Border Grid.Row="1" BackgroundColor="#1E160D" StrokeThickness="0" Padding="0">
+        <Grid ColumnDefinitions="*,*,*,*,*" HeightRequest="88" Padding="0,0,0,20">
+            <!-- Accueil -->
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccueilTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="🏠" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Accueil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Agenda -->
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAgendaTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="📅" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Agenda" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Add Button (Center) -->
+            <Grid Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#FF8C00" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
+                    <Label Text="+" FontSize="32" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
+            </Grid>
+            
+            <!-- Coach -->
+            <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCoachTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="💪" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Coach" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Profil - Active -->
+            <VerticalStackLayout Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <Label Text="👤" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Profil" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
+    </Grid>
+</ContentPage>

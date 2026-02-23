@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Burnoutmobileapp.ViewModels"
+             x:Class="Burnoutmobileapp.Views.CreateEventPage"
+             x:DataType="viewmodels:CreateEventViewModel"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundDark}">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        
+        <!-- Header -->
+        <Grid Padding="16" ColumnDefinitions="Auto,*" BackgroundColor="{StaticResource BackgroundDark}">
+            <Border StrokeThickness="1"
+                    Stroke="{StaticResource SurfaceBorder}"
+                    StrokeShape="RoundRectangle 20"
+                    BackgroundColor="{StaticResource SurfaceDark}"
+                    HeightRequest="40"
+                    WidthRequest="40">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoBackCommand}"/>
+                </Border.GestureRecognizers>
+                <Label Text="←" FontSize="20" TextColor="{StaticResource White}" 
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+            
+            <VerticalStackLayout Grid.Column="1" Margin="16,0" VerticalOptions="Center">
+                <Label Text="Créer un Événement"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource White}"/>
+                <Label Text="NOUVELLE SESSION"
+                       FontSize="10"
+                       TextColor="{StaticResource Gray400}"
+                       LetterSpacing="1"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Form -->
+        <ScrollView Grid.Row="1" Padding="16,0">
+            <VerticalStackLayout Spacing="20">
+                
+                <!-- Event Name -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Nom de l'événement"
+                           FontSize="14"
+                           TextColor="{StaticResource Gray300}"/>
+                    <Border StrokeThickness="1"
+                            Stroke="{StaticResource SurfaceBorder}"
+                            StrokeShape="RoundRectangle 12"
+                            BackgroundColor="{StaticResource InputBackground}"
+                            Padding="0"
+                            HeightRequest="52">
+                        <Grid ColumnDefinitions="48,*">
+                            <Label Text="✏️" FontSize="18" 
+                                   HorizontalOptions="Center" VerticalOptions="Center"
+                                   Opacity="0.5"/>
+                            <Entry Grid.Column="1"
+                                   Text="{Binding EventName}"
+                                   Placeholder="Ex: Yoga Morning Flow"
+                                   PlaceholderColor="{StaticResource Gray500}"
+                                   TextColor="{StaticResource White}"
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Date & Time Row -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                    <!-- Date -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Date"
+                               FontSize="14"
+                               TextColor="{StaticResource Gray300}"/>
+                        <Border StrokeThickness="1"
+                                Stroke="{StaticResource SurfaceBorder}"
+                                StrokeShape="RoundRectangle 12"
+                                BackgroundColor="{StaticResource InputBackground}"
+                                Padding="12"
+                                HeightRequest="52">
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Label Text="📅" FontSize="18" Opacity="0.5" VerticalOptions="Center"/>
+                                <DatePicker Grid.Column="1"
+                                            Date="{Binding EventDate}"
+                                            TextColor="{StaticResource White}"
+                                            BackgroundColor="Transparent"
+                                            VerticalOptions="Center"
+                                            Margin="8,0,0,0"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Time -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="8">
+                        <Label Text="Heure"
+                               FontSize="14"
+                               TextColor="{StaticResource Gray300}"/>
+                        <Border StrokeThickness="1"
+                                Stroke="{StaticResource SurfaceBorder}"
+                                StrokeShape="RoundRectangle 12"
+                                BackgroundColor="{StaticResource InputBackground}"
+                                Padding="12"
+                                HeightRequest="52">
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Label Text="⏰" FontSize="18" Opacity="0.5" VerticalOptions="Center"/>
+                                <TimePicker Grid.Column="1"
+                                            Time="{Binding EventTime}"
+                                            TextColor="{StaticResource White}"
+                                            BackgroundColor="Transparent"
+                                            VerticalOptions="Center"
+                                            Margin="8,0,0,0"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- Location -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Lieu"
+                           FontSize="14"
+                           TextColor="{StaticResource Gray300}"/>
+                    <Border StrokeThickness="1"
+                            Stroke="{StaticResource SurfaceBorder}"
+                            StrokeShape="RoundRectangle 12"
+                            BackgroundColor="{StaticResource InputBackground}"
+                            Padding="0"
+                            HeightRequest="52">
+                        <Grid ColumnDefinitions="48,*">
+                            <Label Text="📍" FontSize="18" 
+                                   HorizontalOptions="Center" VerticalOptions="Center"
+                                   Opacity="0.5"/>
+                            <Entry Grid.Column="1"
+                                   Text="{Binding Location}"
+                                   Placeholder="Ex: Salle A, Annecy"
+                                   PlaceholderColor="{StaticResource Gray500}"
+                                   TextColor="{StaticResource White}"
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Theme & Price Row -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="16">
+                    <!-- Theme -->
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Thème"
+                               FontSize="14"
+                               TextColor="{StaticResource Gray300}"/>
+                        <Border StrokeThickness="1"
+                                Stroke="{StaticResource SurfaceBorder}"
+                                StrokeShape="RoundRectangle 12"
+                                BackgroundColor="{StaticResource InputBackground}"
+                                Padding="12"
+                                HeightRequest="52">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <Label Text="🏷️" FontSize="18" Opacity="0.5" VerticalOptions="Center"/>
+                                <Picker Grid.Column="1"
+                                        SelectedItem="{Binding SelectedTheme}"
+                                        ItemsSource="{Binding Themes}"
+                                        TextColor="{StaticResource White}"
+                                        VerticalOptions="Center"
+                                        Margin="8,0,0,0"/>
+                                <Label Grid.Column="2" Text="▼" FontSize="12" 
+                                       TextColor="{StaticResource Gray500}" VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Price -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="8">
+                        <Label Text="Prix"
+                               FontSize="14"
+                               TextColor="{StaticResource Gray300}"/>
+                        <Border StrokeThickness="1"
+                                Stroke="{StaticResource SurfaceBorder}"
+                                StrokeShape="RoundRectangle 12"
+                                BackgroundColor="{StaticResource InputBackground}"
+                                Padding="0"
+                                HeightRequest="52">
+                            <Grid ColumnDefinitions="48,*">
+                                <Label Text="€" FontSize="18" 
+                                       HorizontalOptions="Center" VerticalOptions="Center"
+                                       Opacity="0.5" TextColor="{StaticResource Gray500}"/>
+                                <Entry Grid.Column="1"
+                                       Text="{Binding Price}"
+                                       Placeholder="Gratuit ou montant"
+                                       PlaceholderColor="{StaticResource Gray500}"
+                                       TextColor="{StaticResource White}"
+                                       Keyboard="Numeric"
+                                       BackgroundColor="Transparent"
+                                       VerticalOptions="Center"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- Description -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Description"
+                           FontSize="14"
+                           TextColor="{StaticResource Gray300}"/>
+                    <Border StrokeThickness="1"
+                            Stroke="{StaticResource SurfaceBorder}"
+                            StrokeShape="RoundRectangle 12"
+                            BackgroundColor="{StaticResource InputBackground}"
+                            Padding="12"
+                            MinimumHeightRequest="120">
+                        <Editor Text="{Binding Description}"
+                                Placeholder="Détails de la séance, matériel nécessaire..."
+                                PlaceholderColor="{StaticResource Gray500}"
+                                TextColor="{StaticResource White}"
+                                BackgroundColor="Transparent"
+                                AutoSize="TextChanges"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Image Upload -->
+                <Border StrokeThickness="2"
+                        Stroke="{StaticResource SurfaceBorder}"
+                        StrokeShape="RoundRectangle 12"
+                        BackgroundColor="{StaticResource SurfaceDark}"
+                        HeightRequest="130"
+                        Margin="0,8,0,24">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SelectImageCommand}"/>
+                    </Border.GestureRecognizers>
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                        <Border StrokeThickness="0"
+                                StrokeShape="RoundRectangle 20"
+                                BackgroundColor="{StaticResource SurfaceBorder}"
+                                HeightRequest="40"
+                                WidthRequest="40">
+                            <Label Text="🖼️" FontSize="18" 
+                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Border>
+                        <Label Text="Ajouter une image de couverture"
+                               FontSize="14"
+                               TextColor="{StaticResource Gray400}"/>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Bottom Button -->
+        <Border Grid.Row="2"
+                StrokeThickness="0"
+                BackgroundColor="{StaticResource BackgroundDark}"
+                Padding="16,16,16,32">
+            <Button Text="✓  Publier l'événement"
+                    Command="{Binding PublishEventCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="{StaticResource White}"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HeightRequest="56"
+                    CornerRadius="12">
+                <Button.Shadow>
+                    <Shadow Brush="{StaticResource Primary}" Offset="0,4" Radius="20" Opacity="0.3"/>
+                </Button.Shadow>
+            </Button>
+        </Border>
+    </Grid>
+</ContentPage>

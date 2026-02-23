@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.HomePage"
+             BackgroundColor="#231A0F"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*,Auto">
+    <ScrollView Grid.Row="0">
+        <VerticalStackLayout Spacing="0">
+            
+            <!-- Header -->
+            <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" BackgroundColor="#231A0F">
+                <Button Text="🔔" FontSize="24" BackgroundColor="Transparent" WidthRequest="44" HeightRequest="44"/>
+                <Border Grid.Column="2" StrokeThickness="1" Stroke="#4B5563" StrokeShape="RoundRectangle 22" HeightRequest="44" WidthRequest="44">
+                    <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuChczTw1U0h0VKwTKdjLRRkAR7NP0QVf5rK1iTMd6RIFm6qAv1OVvVKuVhy5lbv9br6o-ODVeLp_SO4rq-FnLNyOD8v9OAWJzDbCNHquLx9ikYCx7qgzSz18tMGNl5jjkoIDlaLryfpXls_2tzvyiHnB8Rhr-zlCZwrgJ1TE1c_pYL3agbleZjfvokoy9DcpdydV8XSIa13UxXcmAYrnLsj_e_d53x3kf15Pl0QRyRg_9Cfrx8_Rtywc5__REFmlkV0a4cPzYa3VnJ8" Aspect="AspectFill"/>
+                </Border>
+            </Grid>
+
+            <!-- Welcome Section -->
+            <VerticalStackLayout Padding="16,8,16,16" Spacing="4">
+                <Label Text="Bonjour, Alex" FontSize="32" FontAttributes="Bold" TextColor="White"/>
+                <Label Text="Prêt à brûler des calories ?" FontSize="16" TextColor="#9CA3AF"/>
+            </VerticalStackLayout>
+
+            <!-- Gym Access Card -->
+            <Border Margin="16,0,16,16" StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#362817" Padding="0">
+                <Grid Padding="24" RowDefinitions="Auto,Auto,Auto" RowSpacing="12">
+                    <Border HorizontalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 40" BackgroundColor="#FF8C00" HeightRequest="80" WidthRequest="80">
+                        <Label Text="📶" FontSize="36" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <Label Grid.Row="1" Text="Accès Salle" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Grid.Row="2" Text="CLIQUEZ ICI" FontSize="12" TextColor="#CEB18D" HorizontalOptions="Center"/>
+                </Grid>
+            </Border>
+
+            <!-- Stats Grid -->
+            <Grid Margin="16,0,16,24" ColumnDefinitions="*,*" ColumnSpacing="12">
+                <!-- Visits Card -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#362817" Padding="16">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="📅" FontSize="18"/>
+                            <Label Text="VISITES" FontSize="10" TextColor="#9CA3AF" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="4">
+                            <Label Text="3" FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="cette sem." FontSize="12" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,2"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Calories Card -->
+                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#362817" Padding="16">
+                    <VerticalStackLayout Spacing="8">
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="🔥" FontSize="18"/>
+                            <Label Text="CALORIES" FontSize="10" TextColor="#9CA3AF" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Spacing="4">
+                            <Label Text="1,240" FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="kcal" FontSize="12" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,2"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- Next Session Section -->
+            <VerticalStackLayout Padding="16,0" Spacing="12">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Text="Prochaine Séance" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                    <Label Grid.Column="1" Text="Voir tout" FontSize="14" TextColor="#FF8C00"/>
+                </Grid>
+
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#362817">
+                    <Grid ColumnDefinitions="120,*">
+                        <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuAnIGVS58sxYo_FKXHXKtyEgb2kkO8XU25VsgQSiG_Y4HM0jzAPAZjWlsscSm1nc1izJJGVT6eALKE2jmjNDWUqujqycDGpDe-QWZT4gQD9-lALkDGKJJrb2hgGenlHDp9BR6-QPC1s2I6aQTIZC41p4lYSLdI9VIWJwMfQ0hVOIX1ANpO1B0LnqhuqiZLbtUnfVWFki0Jonyn69R7wNgOLLGZamh6yYV58KtsfTr9sjzcln-wx5bwwtJA02rvSv6Oi7fcs2PqaKyPZ" Aspect="AspectFill" HeightRequest="130"/>
+                        <VerticalStackLayout Grid.Column="1" Padding="16" Spacing="4" VerticalOptions="Center">
+                            <Label Text="Chest Day" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                            <HorizontalStackLayout Spacing="6">
+                                <Label Text="⏰" FontSize="14" TextColor="#FF8C00"/>
+                                <Label Text="Aujourd'hui, 17h30" FontSize="14" TextColor="#D1D5DB"/>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout Spacing="8" Margin="0,8,0,0">
+                                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" HeightRequest="24" WidthRequest="24">
+                                    <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuANZVhojxzwzQDxwfoAoIVtZw6t8x9BDKxzS6DoEgfiJASpk56W4wEfeWno0R3Ejr9pz_Ba1ajVLlzz6heY_OTDWk1gk8UU6mQ6mY2otbRlqOoaXY6pnURYMs3JHr3TL0IEGdhWHm-9woRWEQR3ju_UqKZfIsMb_WiYE27yql-p-mEVdfoJDAnIX_pmTeZRd0aS30zZo0QbFCTMFxbUgbmzP2-xZk6Vinu8TZMssfOW40l_HjisuCx9OgVj6k-j42Sv7yEFSw6K9YIn" Aspect="AspectFill"/>
+                                </Border>
+                                <Label Text="Coach Marc" FontSize="12" TextColor="#9CA3AF" VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#FF8C001A" Padding="8,4" HorizontalOptions="Start" Margin="0,4,0,0">
+                                <Label Text="FORCE" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <!-- Events Section -->
+            <Border Margin="16,24,16,16" StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 12" BackgroundColor="#362817" Padding="16">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEventsTapped"/>
+                </Border.GestureRecognizers>
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 24" BackgroundColor="#FF8C001A" HeightRequest="48" WidthRequest="48">
+                        <Label Text="📅" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Margin="16,0" VerticalOptions="Center">
+                        <Label Text="Événements" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                        <Label Text="Compétitions, workshops et plus" FontSize="14" TextColor="#9CA3AF"/>
+                    </VerticalStackLayout>
+                    <Border Grid.Column="2" StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#FFFFFF0D" HeightRequest="32" WidthRequest="32">
+                        <Label Text="›" FontSize="20" TextColor="#9CA3AF" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- Challenges Section -->
+            <VerticalStackLayout Padding="16,0,0,24" Spacing="12">
+                <Label Text="Défis en cours" FontSize="18" FontAttributes="Bold" TextColor="White" Padding="0,0,16,0"/>
+                
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="16">
+                        <!-- Challenge 1 -->
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" WidthRequest="260" HeightRequest="160">
+                            <Grid>
+                                <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuD09BNViI4muxpjteb6UDdiYjWrlI-T7qYWt3Nko9G64mpdOIPRKwPhKrpj8_SPDeQc48e2gQu_2bm2IfqOZFIqm3IjDO6FH96hivgIGjy9Wz-qpt_RjZcjaKdNGGz4TG79-bhI8KkFypB_smAWyS5Oh6YVkVAmP7kjdC9C53pGrvh_1aRMrQIoXfbk8-asMvHD2TySStO3e0tDjVxltXRYv8yLziZehY1tzmZTKkpvuyKjrBuuQNsHrFg9M43Ec8gkLRwWeYOMJ4SP" Aspect="AspectFill"/>
+                                <BoxView Color="Black" Opacity="0.5"/>
+                                <VerticalStackLayout VerticalOptions="End" Padding="16">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <Label Text="JOURS 12/30" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                        <Label Grid.Column="1" Text="🔥" FontSize="14"/>
+                                    </Grid>
+                                    <Label Text="30 Day Squat" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                                    <Grid HeightRequest="4" Margin="0,8,0,0">
+                                        <BoxView BackgroundColor="#374151" CornerRadius="2"/>
+                                        <BoxView BackgroundColor="#FF8C00" CornerRadius="2" HorizontalOptions="Start" WidthRequest="100"/>
+                                    </Grid>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+
+                        <!-- Challenge 2 -->
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" WidthRequest="260" HeightRequest="160" Margin="0,0,16,0">
+                            <Grid>
+                                <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuA_tAhmMg_CrLYpV6Lkg2Z39HznWkBIhzUJiqTFaLIG-ai-z5ZKZ4EZnYIrBJi0NFGIFMyjJCbQk2mHqlaPFBp4170Mx9PAnIAHDO-9meVWF4kG9f4IwaJ3MgofogQPIRtxQ4P5m6tsz3cDjgVjCf5tP_9CejycVcNcS260yc6eV031kZP8R6QaW4H2o2GKaorc4oAGfWBI9doPMoUOpgrf-1l-0kQppweAgE9IpA0EsVDQTdYNIYnYJS7Vst0WFXMSzkR97DgS7peL" Aspect="AspectFill"/>
+                                <BoxView Color="Black" Opacity="0.5"/>
+                                <VerticalStackLayout VerticalOptions="End" Padding="16">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <Label Text="JOURS 5/7" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                        <Label Grid.Column="1" Text="🚣" FontSize="14"/>
+                                    </Grid>
+                                    <Label Text="Phoenix Rising" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                                    <Grid HeightRequest="4" Margin="0,8,0,0">
+                                        <BoxView BackgroundColor="#374151" CornerRadius="2"/>
+                                        <BoxView BackgroundColor="#FF8C00" CornerRadius="2" HorizontalOptions="Start" WidthRequest="180"/>
+                                    </Grid>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </HorizontalStackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
+
+            <!-- Bottom Spacing for Tab Bar -->
+            <BoxView HeightRequest="20" Color="Transparent"/>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+    <!-- Custom Footer Tab Bar -->
+    <Border Grid.Row="1" BackgroundColor="#1E160D" StrokeThickness="0" Padding="0">
+        <Grid ColumnDefinitions="*,*,*,*,*" HeightRequest="88" Padding="0,0,0,20">
+            <!-- Accueil - Active -->
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <Label Text="🏠" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Accueil" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Agenda -->
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAgendaTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="📅" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Agenda" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Add Button (Center) -->
+            <Grid Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#FF8C00" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
+                    <Label Text="+" FontSize="32" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
+            </Grid>
+            
+            <!-- Coach -->
+            <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCoachTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="💪" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Coach" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Profil -->
+            <VerticalStackLayout Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfilTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="👤" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Profil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
+    </Grid>
+</ContentPage>

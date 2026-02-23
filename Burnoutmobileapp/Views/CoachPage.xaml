@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.CoachPage"
+             BackgroundColor="#231A0F"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*,Auto">
+    <Grid Grid.Row="0" RowDefinitions="Auto,Auto,*">
+        
+        <!-- Header -->
+        <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" BackgroundColor="#231A0F">
+            <Border StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 20" BackgroundColor="#2E2315" HeightRequest="40" WidthRequest="40">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="←" FontSize="20" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+            <Label Grid.Column="1" Text="Contacter un Coach" FontSize="18" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <BoxView Grid.Column="2" WidthRequest="40" Color="Transparent"/>
+        </Grid>
+
+        <!-- Search Bar -->
+        <Border Grid.Row="1" Margin="16,0,16,16" StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#2E2418" HeightRequest="48">
+            <Grid ColumnDefinitions="48,*">
+                <Label Text="🔍" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#CCB18E"/>
+                <Entry Grid.Column="1" Placeholder="Rechercher un coach" PlaceholderColor="#CCB18E80" TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center"/>
+            </Grid>
+        </Border>
+
+        <!-- Coaches List -->
+        <ScrollView Grid.Row="2" Padding="16,0">
+            <VerticalStackLayout Spacing="12">
+                
+                <!-- Coach 1: Jean Dupont -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#2E2418" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Grid ColumnDefinitions="56,*">
+                            <Border StrokeThickness="2" Stroke="#FF8C0033" StrokeShape="RoundRectangle 28" HeightRequest="56" WidthRequest="56">
+                                <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuBmbwEFj5TKWV-201_ftoAkWLTZEd29MqEBarRXRKAnS8MWHmDpNJwkwwpQP6IvXLPH3IK_Sn_YuqAVP1zqAd8_9zvHbpQSEb8IytCit9HKsvOq4NSl9j7gDSm5uriuW4e60EQ9B-KnYKf7KfpIgp3cd6nSV66k9hTQBuV4mt6h7W5mCjv9XzBJpa16Aoql-eOJB_z72UffpDjA2Rz3Eua52hS2ZGA9qJ6bF-UUYzmhTCeMqIHREeD3NeJwQwA9c4b1KvB0WxvKT5rP" Aspect="AspectFill"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Margin="16,0,0,0" VerticalOptions="Center" Spacing="2">
+                                <Label Text="Jean Dupont" FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="Expert Musculation" FontSize="14" TextColor="#FF8C00"/>
+                                <Label Text="Disponible aujourd'hui à 14h" FontSize="12" TextColor="#9CA3AF" Margin="0,2,0,0"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                            <Button Text="💬  Message" BackgroundColor="#FF8C00" TextColor="White" FontSize="14" FontAttributes="Bold" HeightRequest="36" CornerRadius="8"/>
+                            <Button Grid.Column="1" Text="📞  Appeler" BackgroundColor="#FFFFFF1A" TextColor="White" FontSize="14" FontAttributes="Bold" HeightRequest="36" CornerRadius="8"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Coach 2: Marie Curie -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#2E2418" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Grid ColumnDefinitions="56,*">
+                            <Border StrokeThickness="2" Stroke="#FF8C0033" StrokeShape="RoundRectangle 28" HeightRequest="56" WidthRequest="56">
+                                <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuAkibmsICns5DYlRd3uBudFy4LwEz896-mw4nmEmtYWIBuArdlVPBJ6OjsIFTYy64malPI_5MY7ewpUC8Eqqb5Gs7nE9A7yoFM-yAsKVijFJy67tzr9CFoNuhWIgfnPz1iXC_UKGhJdX5_aMhszACADZbG9R8e1gDfDqFOA9fMzbtxe8XNtUpbctrEb-BiuDuUg71MjwGPIDpEbiFx_X9BnTEx8Gv1n016VCHxRXkSn8WStLEb0ejqRIjjXcUtbxWhW4kCOcdu_Etq_" Aspect="AspectFill"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Margin="16,0,0,0" VerticalOptions="Center" Spacing="2">
+                                <Label Text="Marie Curie" FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="Yoga Master" FontSize="14" TextColor="#FF8C00"/>
+                                <Label Text="En séance actuellement" FontSize="12" TextColor="#9CA3AF" Margin="0,2,0,0"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                            <Button Text="💬  Message" BackgroundColor="#FF8C00" TextColor="White" FontSize="14" FontAttributes="Bold" HeightRequest="36" CornerRadius="8"/>
+                            <Button Grid.Column="1" Text="📞  Appeler" BackgroundColor="#FFFFFF1A" TextColor="White" FontSize="14" FontAttributes="Bold" HeightRequest="36" CornerRadius="8"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Coach 3: Lucas Martin -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#2E2418" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Grid ColumnDefinitions="56,*">
+                            <Border StrokeThickness="2" Stroke="#FF8C0033" StrokeShape="RoundRectangle 28" HeightRequest="56" WidthRequest="56">
+                                <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuCeGfbQBqxIC3tOEV4QDWtpFFBKls7yyIzKfN-0_Tq0HzkEhraMTr9wYzX80Odm_wp6LjAs_Awi0V96gT9BvfMN8HucXyEGva0UVDgUkdidrdqfpk2vS-8GReFrgGXiqx45oXonz0RU49ASoNpO3PYJ45TOlCklYMkHi7XhV_0JatiU5bJ7MEOSjT__ZaBW7Gz3AssBA2Smftm2pZbDLkGmop2-woBl9u87el0-QKXdz0mx77YWk52CLH8GEof6EDa5heZ_KmTZCBdA" Aspect="AspectFill"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Margin="16,0,0,0" VerticalOptions="Center" Spacing="2">
+                                <Label Text="Lucas Martin" FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="Crossfit &amp; Cardio" FontSize="14" TextColor="#FF8C00"/>
+                                <Label Text="Absent jusqu'au 15 Oct" FontSize="12" TextColor="#9CA3AF" Margin="0,2,0,0"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                            <Button Text="💬  Message" BackgroundColor="#FF8C00" TextColor="White" FontSize="14" FontAttributes="Bold" HeightRequest="36" CornerRadius="8"/>
+                            <Button Grid.Column="1" Text="📞  Appeler" BackgroundColor="#FFFFFF1A" TextColor="White" FontSize="14" FontAttributes="Bold" HeightRequest="36" CornerRadius="8" Opacity="0.5"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Coach 4: Sophie Bernard -->
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#2E2418" Padding="16">
+                    <VerticalStackLayout Spacing="12">
+                        <Grid ColumnDefinitions="56,*">
+                            <Border StrokeThickness="2" Stroke="#FF8C0033" StrokeShape="RoundRectangle 28" HeightRequest="56" WidthRequest="56">
+                                <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuADAchHqxLUlaykGUxbJG4DFP-CTNuyJ0zMKmMiWXaKI3PO72hFtOYRANl6u0oN8y4rLrzVHr6kcz5iunhDnKod9OCQyZR6QEaY_g2hdvCtkU2Wvfi_Gv5nRCJg37DYn4oawo4RA_bPY1q_ElSY108toC9SjOQVBNnaHfDO8a9skjMbo2vP-lRrYDwRCjzke3SFj06B3dACnd8DsUSJ62npR1PWQsCpwN0aQ7FowotxbvZKzoWeGBEW9ytsUYpWlGp6iSFY__nuq9ps" Aspect="AspectFill"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Margin="16,0,0,0" VerticalOptions="Center" Spacing="2">
+                                <Label Text="Sophie Bernard" FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                                <Label Text="Nutritionniste" FontSize="14" TextColor="#FF8C00"/>
+                                <Label Text="Disponible demain matin" FontSize="12" TextColor="#9CA3AF" Margin="0,2,0,0"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                            <Button Text="💬  Message" BackgroundColor="#FF8C00" TextColor="White" FontSize="14" FontAttributes="Bold" HeightRequest="36" CornerRadius="8"/>
+                            <Button Grid.Column="1" Text="📞  Appeler" BackgroundColor="#FFFFFF1A" TextColor="White" FontSize="14" FontAttributes="Bold" HeightRequest="36" CornerRadius="8"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Bottom Spacing -->
+                <BoxView HeightRequest="20" Color="Transparent"/>
+                
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+    <!-- Custom Footer Tab Bar -->
+    <Border Grid.Row="1" BackgroundColor="#1E160D" StrokeThickness="0" Padding="0">
+        <Grid ColumnDefinitions="*,*,*,*,*" HeightRequest="88" Padding="0,0,0,20">
+            <!-- Accueil -->
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccueilTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="🏠" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Accueil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Agenda -->
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAgendaTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="📅" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Agenda" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Add Button (Center) -->
+            <Grid Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#FF8C00" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
+                    <Label Text="+" FontSize="32" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
+            </Grid>
+            
+            <!-- Coach - Active -->
+            <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <Label Text="💪" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Coach" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Profil -->
+            <VerticalStackLayout Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfilTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Label Text="👤" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="Profil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Border>
+    </Grid>
+</ContentPage>
