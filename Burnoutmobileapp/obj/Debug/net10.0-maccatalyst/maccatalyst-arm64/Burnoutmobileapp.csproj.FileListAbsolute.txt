@@ -307,4 +307,3 @@
 /Users/matias/RiderProjects/Burnoutmobileapp/Burnoutmobileapp/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/Burnoutmobileapp.genruntimeconfig.cache
 /Users/matias/RiderProjects/Burnoutmobileapp/Burnoutmobileapp/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/ref/Burnoutmobileapp.dll
 /Users/matias/RiderProjects/Burnoutmobileapp/Burnoutmobileapp/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/CommunityToolkit.Mvvm.dll
-/Users/matias/RiderProjects/Burnoutmobileapp/Burnoutmobileapp/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/resourcestamps/CommunityToolkit.Mvvm.stamp
