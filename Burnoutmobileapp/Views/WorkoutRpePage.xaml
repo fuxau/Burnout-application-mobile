@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.WorkoutRpePage"
+             BackgroundColor="#0a1628"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="24,52,24,40">
+
+            <Label Text="Seance terminee !" FontSize="28" FontAttributes="Bold" TextColor="White"
+                   HorizontalOptions="Center" Margin="0,0,0,4"/>
+            <Label x:Name="SessionTitleLabel" Text="" FontSize="15" TextColor="#6B7280"
+                   HorizontalOptions="Center" Margin="0,0,0,4"/>
+            <Label x:Name="TotalTimeLabel" Text="" FontSize="20" FontAttributes="Bold" TextColor="#005da1"
+                   HorizontalOptions="Center" Margin="0,0,0,32"/>
+
+            <!-- RPE first -->
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#0d1f3c" Padding="20" Margin="0,0,0,16">
+                <VerticalStackLayout Spacing="16">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="Effort percu (RPE)" FontSize="17" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="1 = tres facile  |  10 = effort maximal" FontSize="12" TextColor="#6B7280"/>
+                        </VerticalStackLayout>
+                        <Label x:Name="RpeValueLabel" Grid.Column="1" Text="5"
+                               FontSize="32" FontAttributes="Bold" TextColor="#005da1" VerticalOptions="Center"/>
+                    </Grid>
+
+                    <Grid ColumnSpacing="6" RowSpacing="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/><ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/><ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Border x:Name="Rpe1" Grid.Row="0" Grid.Column="0" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="1"/></Border.GestureRecognizers>
+                            <Label Text="1" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe2" Grid.Row="0" Grid.Column="1" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="2"/></Border.GestureRecognizers>
+                            <Label Text="2" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe3" Grid.Row="0" Grid.Column="2" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="3"/></Border.GestureRecognizers>
+                            <Label Text="3" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe4" Grid.Row="0" Grid.Column="3" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="4"/></Border.GestureRecognizers>
+                            <Label Text="4" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe5" Grid.Row="0" Grid.Column="4" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="5"/></Border.GestureRecognizers>
+                            <Label Text="5" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe6" Grid.Row="1" Grid.Column="0" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="6"/></Border.GestureRecognizers>
+                            <Label Text="6" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe7" Grid.Row="1" Grid.Column="1" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="7"/></Border.GestureRecognizers>
+                            <Label Text="7" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe8" Grid.Row="1" Grid.Column="2" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="8"/></Border.GestureRecognizers>
+                            <Label Text="8" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe9" Grid.Row="1" Grid.Column="3" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="9"/></Border.GestureRecognizers>
+                            <Label Text="9" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                        <Border x:Name="Rpe10" Grid.Row="1" Grid.Column="4" StrokeThickness="2"
+                                Stroke="#1a3a6b" StrokeShape="RoundRectangle 10" BackgroundColor="#112447" Padding="0,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnRpeTapped" CommandParameter="10"/></Border.GestureRecognizers>
+                            <Label Text="10" FontSize="16" FontAttributes="Bold" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+                        </Border>
+                    </Grid>
+
+                    <Label x:Name="RpeDescLabel" Text="Effort modere" FontSize="13" TextColor="#6B7280"
+                           HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Mood second -->
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#0d1f3c" Padding="20" Margin="0,0,0,32">
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="Comment tu te sens ?" FontSize="17" FontAttributes="Bold" TextColor="White"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Choisis l emoji qui correspond le mieux" FontSize="13" TextColor="#6B7280"
+                           HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+
+                    <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="8" Margin="0,4,0,0">
+                        <Border x:Name="MoodBorder0" Grid.Column="0" StrokeThickness="2" Stroke="#1a3a6b"
+                                StrokeShape="RoundRectangle 16" BackgroundColor="#112447" Padding="8,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnMoodTapped" CommandParameter="0"/></Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="&#128553;" FontSize="28" HorizontalOptions="Center"/>
+                                <Label Text="Epuise" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border x:Name="MoodBorder1" Grid.Column="1" StrokeThickness="2" Stroke="#1a3a6b"
+                                StrokeShape="RoundRectangle 16" BackgroundColor="#112447" Padding="8,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnMoodTapped" CommandParameter="1"/></Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="&#128532;" FontSize="28" HorizontalOptions="Center"/>
+                                <Label Text="Difficile" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border x:Name="MoodBorder2" Grid.Column="2" StrokeThickness="2" Stroke="#1a3a6b"
+                                StrokeShape="RoundRectangle 16" BackgroundColor="#112447" Padding="8,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnMoodTapped" CommandParameter="2"/></Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="&#128528;" FontSize="28" HorizontalOptions="Center"/>
+                                <Label Text="Normal" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border x:Name="MoodBorder3" Grid.Column="3" StrokeThickness="2" Stroke="#1a3a6b"
+                                StrokeShape="RoundRectangle 16" BackgroundColor="#112447" Padding="8,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnMoodTapped" CommandParameter="3"/></Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="&#128513;" FontSize="28" HorizontalOptions="Center"/>
+                                <Label Text="Bien" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border x:Name="MoodBorder4" Grid.Column="4" StrokeThickness="2" Stroke="#1a3a6b"
+                                StrokeShape="RoundRectangle 16" BackgroundColor="#112447" Padding="8,12">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnMoodTapped" CommandParameter="4"/></Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="&#129321;" FontSize="28" HorizontalOptions="Center"/>
+                                <Label Text="Excellent" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Valider et voir le resume" BackgroundColor="#005da1" TextColor="White"
+                    FontSize="16" FontAttributes="Bold" HeightRequest="56" CornerRadius="28"
+                    HorizontalOptions="Fill" Clicked="OnValidateClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

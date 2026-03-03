@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.WorkoutSummaryPage"
+             BackgroundColor="#0a1628"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="24,52,24,40">
+
+            <Label Text="Resume de seance" FontSize="26" FontAttributes="Bold" TextColor="White"
+                   HorizontalOptions="Center" Margin="0,0,0,24"/>
+
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#0d1f3c" Padding="20" Margin="0,0,0,16">
+                <VerticalStackLayout Spacing="16">
+                    <Label x:Name="SessionTitleLabel" Text="" FontSize="18" FontAttributes="Bold"
+                           TextColor="White" HorizontalOptions="Center"/>
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 12"
+                                BackgroundColor="#112447" Padding="10,12">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="&#8987;" FontSize="18" HorizontalOptions="Center"/>
+                                <Label x:Name="TimeStatLabel" Text="00:00" FontSize="16" FontAttributes="Bold"
+                                       TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="Duree" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 12"
+                                BackgroundColor="#112447" Padding="10,12">
+                            <VerticalStackLayout Spacing="4">
+                                <Label x:Name="MoodEmojiStat" Text="😐" FontSize="18" HorizontalOptions="Center"/>
+                                <Label x:Name="MoodLabelStat" Text="Normal" FontSize="16" FontAttributes="Bold"
+                                       TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="Ressenti" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="2" StrokeThickness="0" StrokeShape="RoundRectangle 12"
+                                BackgroundColor="#112447" Padding="10,12">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="&#128170;" FontSize="18" HorizontalOptions="Center"/>
+                                <Label x:Name="RpeStatLabel" Text="5" FontSize="16" FontAttributes="Bold"
+                                       TextColor="#005da1" HorizontalOptions="Center"/>
+                                <Label Text="RPE / 10" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#0d1f3c" Padding="20" Margin="0,0,0,16">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Ajouter une photo (optionnel)" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+                    <Border StrokeThickness="2" Stroke="#1a3a6b" StrokeShape="RoundRectangle 14"
+                            BackgroundColor="#112447" HeightRequest="140">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPickPhotoTapped"/>
+                        </Border.GestureRecognizers>
+                        <Border.Content>
+                            <Grid>
+                                <Image x:Name="SelectedPhoto" Aspect="AspectFill" IsVisible="False"/>
+                                <VerticalStackLayout x:Name="PhotoPlaceholder"
+                                                     HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                                    <Label Text="&#128247;" FontSize="32" HorizontalOptions="Center"/>
+                                    <Label Text="Appuyez pour choisir une photo" FontSize="13"
+                                           TextColor="#6B7280" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border.Content>
+                    </Border>
+                    <Button x:Name="RemovePhotoButton" Text="Supprimer la photo"
+                            BackgroundColor="Transparent" TextColor="#EF4444"
+                            FontSize="13" IsVisible="False" Clicked="OnRemovePhotoClicked"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border StrokeThickness="0" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#0d1f3c" Padding="20" Margin="0,0,0,24">
+                <VerticalStackLayout Spacing="12">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Partager ta seance" FontSize="15" FontAttributes="Bold"
+                               TextColor="White" VerticalOptions="Center"/>
+                        <Label x:Name="CharCountLabel" Grid.Column="1" Text="0 / 160"
+                               FontSize="12" TextColor="#6B7280" VerticalOptions="Center"/>
+                    </Grid>
+                    <Border StrokeThickness="1" Stroke="#1a3a6b" StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#112447" Padding="12">
+                        <Editor x:Name="PostEditor"
+                                Placeholder="Raconte ta seance en quelques mots..."
+                                PlaceholderColor="#4B5563" TextColor="White"
+                                BackgroundColor="Transparent" FontSize="14"
+                                AutoSize="TextChanges" MinimumHeightRequest="80"
+                                MaxLength="160" TextChanged="OnPostTextChanged"/>
+                    </Border>
+                    <Label Text="&#128161; 160 caracteres max, comme un tweet"
+                           FontSize="11" TextColor="#6B7280"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Publier la seance" BackgroundColor="#005da1" TextColor="White"
+                    FontSize="16" FontAttributes="Bold" HeightRequest="56" CornerRadius="28"
+                    HorizontalOptions="Fill" Margin="0,0,0,12" Clicked="OnPublishClicked"/>
+
+            <Button Text="Retour au menu" BackgroundColor="#112447" TextColor="#9CA3AF"
+                    FontSize="15" HeightRequest="52" CornerRadius="26"
+                    HorizontalOptions="Fill" Clicked="OnHomeClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

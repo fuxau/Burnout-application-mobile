@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.FeedPage"
+             BackgroundColor="#0a1628"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="0">
+
+                <Grid Padding="16,52,16,16" ColumnDefinitions="Auto,*" BackgroundColor="#0a1628">
+                    <Border StrokeThickness="1" Stroke="#1a3a6b" StrokeShape="RoundRectangle 20"
+                            BackgroundColor="#0d1f3c" HeightRequest="40" WidthRequest="40">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBackTapped"/>
+                        </Border.GestureRecognizers>
+                        <Label Text="&#8592;" FontSize="20" TextColor="White"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <Label Grid.Column="1" Text="Feed" FontSize="26" FontAttributes="Bold" TextColor="White"
+                           HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+
+                <VerticalStackLayout x:Name="FeedContainer" Padding="16,0,16,16" Spacing="16"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Border Grid.Row="1" BackgroundColor="#071020" StrokeThickness="0" Padding="0">
+            <Grid ColumnDefinitions="*,*,*,*,*" HeightRequest="88" Padding="0,0,0,20">
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAccueilTapped"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Label Text="&#127968;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="Accueil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAgendaTapped"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Label Text="&#128197;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="Agenda" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                    <Label Text="&#127942;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="Feed" FontSize="10" FontAttributes="Bold" TextColor="#005da1" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCoachTapped"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Label Text="&#128170;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="Coach" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnProfilTapped"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Label Text="&#128100;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="Profil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+    </Grid>
+</ContentPage>

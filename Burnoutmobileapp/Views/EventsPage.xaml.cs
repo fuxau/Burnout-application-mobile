@@ -49,9 +49,7 @@ public partial class EventsPage : ContentPage
             var day = _weekStart.AddDays(i);
             bool isSelected = day.Date == _selectedDate.Date;
             bool isToday = day.Date == DateTime.Today;
-
-            var dayView = BuildDayButton(day, dayNames[i], isSelected, isToday);
-            DaysContainer.Children.Add(dayView);
+            DaysContainer.Children.Add(BuildDayButton(day, dayNames[i], isSelected, isToday));
         }
     }
 
@@ -59,16 +57,9 @@ public partial class EventsPage : ContentPage
     {
         var bg = isSelected ? Color.FromArgb("#005da1") : Color.FromArgb("#0d1f3c");
         var textColor = isSelected ? Colors.White : (isToday ? Color.FromArgb("#005da1") : Color.FromArgb("#9CA3AF"));
-        var numColor = isSelected ? Colors.White : Colors.White;
         var stroke = isSelected ? Color.FromArgb("#005da1") : Color.FromArgb("#1a3a6b");
 
-        var stack = new VerticalStackLayout
-        {
-            Spacing = 2,
-            Padding = new Thickness(10, 8),
-            HorizontalOptions = LayoutOptions.Center
-        };
-
+        var stack = new VerticalStackLayout { Spacing = 2, Padding = new Thickness(10, 8), HorizontalOptions = LayoutOptions.Center };
         var border = new Border
         {
             StrokeThickness = isSelected ? 0 : 1,
@@ -79,19 +70,13 @@ public partial class EventsPage : ContentPage
             Padding = new Thickness(6, 10)
         };
 
-        stack.Children.Add(new Label
-        {
-            Text = dayName,
-            FontSize = 11,
-            TextColor = textColor,
-            HorizontalOptions = LayoutOptions.Center
-        });
+        stack.Children.Add(new Label { Text = dayName, FontSize = 11, TextColor = textColor, HorizontalOptions = LayoutOptions.Center });
         stack.Children.Add(new Label
         {
             Text = day.Day.ToString(),
             FontSize = isSelected ? 22 : 20,
             FontAttributes = isSelected ? FontAttributes.Bold : FontAttributes.None,
-            TextColor = numColor,
+            TextColor = Colors.White,
             HorizontalOptions = LayoutOptions.Center
         });
 
@@ -115,31 +100,21 @@ public partial class EventsPage : ContentPage
     {
         SessionsContainer.Children.Clear();
         var sessions = await _dataService.GetSessionsForDateAsync(date);
-
         if (sessions == null || sessions.Count == 0)
         {
             NoSessionLabel.IsVisible = true;
             return;
         }
-
         NoSessionLabel.IsVisible = false;
         foreach (var session in sessions)
-        {
-            var card = BuildSessionCard(session);
-            SessionsContainer.Children.Add(card);
-        }
+            SessionsContainer.Children.Add(BuildSessionCard(session));
     }
 
     private View BuildSessionCard(WorkoutSession session)
     {
         var timeStr = session.Time.ToString(@"hh\:mm");
-
-        var typeBg = session.Type == "MUSCU"
-            ? Color.FromArgb("#1A005da1")
-            : Color.FromArgb("#1A22C55E");
-        var typeTextColor = session.Type == "MUSCU"
-            ? Color.FromArgb("#005da1")
-            : Color.FromArgb("#22C55E");
+        var typeBg = session.Type == "MUSCU" ? Color.FromArgb("#1A005da1") : Color.FromArgb("#1A22C55E");
+        var typeTextColor = session.Type == "MUSCU" ? Color.FromArgb("#005da1") : Color.FromArgb("#22C55E");
 
         var card = new Border
         {
@@ -151,24 +126,10 @@ public partial class EventsPage : ContentPage
         };
 
         var mainStack = new VerticalStackLayout { Spacing = 10 };
+        mainStack.Children.Add(new Label { Text = session.Title, FontSize = 18, FontAttributes = FontAttributes.Bold, TextColor = Colors.White });
 
-        // Title
-        mainStack.Children.Add(new Label
-        {
-            Text = session.Title,
-            FontSize = 18,
-            FontAttributes = FontAttributes.Bold,
-            TextColor = Colors.White
-        });
-
-        // Time + type row
         var infoRow = new HorizontalStackLayout { Spacing = 16 };
-        infoRow.Children.Add(new Label
-        {
-            Text = $"⏰  {timeStr}",
-            FontSize = 14,
-            TextColor = Color.FromArgb("#9CA3AF")
-        });
+        infoRow.Children.Add(new Label { Text = $"⏰  {timeStr}", FontSize = 14, TextColor = Color.FromArgb("#9CA3AF") });
 
         var typeBadge = new Border
         {
@@ -177,23 +138,10 @@ public partial class EventsPage : ContentPage
             BackgroundColor = typeBg,
             Padding = new Thickness(10, 4)
         };
-        typeBadge.Content = new Label
-        {
-            Text = session.Type,
-            FontSize = 11,
-            FontAttributes = FontAttributes.Bold,
-            TextColor = typeTextColor
-        };
+        typeBadge.Content = new Label { Text = session.Type, FontSize = 11, FontAttributes = FontAttributes.Bold, TextColor = typeTextColor };
         infoRow.Children.Add(typeBadge);
         mainStack.Children.Add(infoRow);
-
-        // "Voir la séance" hint
-        mainStack.Children.Add(new Label
-        {
-            Text = "Appuyez pour voir la seance  ›",
-            FontSize = 12,
-            TextColor = Color.FromArgb("#005da1")
-        });
+        mainStack.Children.Add(new Label { Text = "Appuyez pour voir la seance  ›", FontSize = 12, TextColor = Color.FromArgb("#005da1") });
 
         card.Content = mainStack;
 
@@ -202,10 +150,7 @@ public partial class EventsPage : ContentPage
         {
             Command = new Command(async () =>
             {
-                await Shell.Current.GoToAsync("sessiondetail", new Dictionary<string, object>
-                {
-                    { "Session", captured }
-                });
+                await Shell.Current.GoToAsync("sessiondetail", new Dictionary<string, object> { { "Session", captured } });
             })
         });
 
@@ -228,15 +173,8 @@ public partial class EventsPage : ContentPage
         await LoadSessionsForDate(_selectedDate);
     }
 
-    private async void OnAccueilTapped(object sender, TappedEventArgs e) =>
-        await Shell.Current.GoToAsync("//home");
-
-    private async void OnFeedTapped(object sender, TappedEventArgs e) =>
-        await Shell.Current.GoToAsync("feed");
-
-    private async void OnCoachTapped(object sender, TappedEventArgs e) =>
-        await Shell.Current.GoToAsync("//coach");
-
-    private async void OnProfilTapped(object sender, TappedEventArgs e) =>
-        await Shell.Current.GoToAsync("//profile");
+    private async void OnAccueilTapped(object sender, TappedEventArgs e) => await Shell.Current.GoToAsync("//home");
+    private async void OnFeedTapped(object sender, TappedEventArgs e) => await Shell.Current.GoToAsync("feed");
+    private async void OnCoachTapped(object sender, TappedEventArgs e) => await Shell.Current.GoToAsync("//coach");
+    private async void OnProfilTapped(object sender, TappedEventArgs e) => await Shell.Current.GoToAsync("//profile");
 }

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Burnoutmobileapp.Views.WorkoutTimerPage"
+             BackgroundColor="#0a1628"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <Grid Grid.Row="0" Padding="16,52,16,8" ColumnDefinitions="Auto,*,Auto" BackgroundColor="#0a1628">
+            <Border StrokeThickness="1" Stroke="#1a3a6b" StrokeShape="RoundRectangle 20"
+                    BackgroundColor="#0d1f3c" HeightRequest="40" WidthRequest="40">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseTapped"/>
+                </Border.GestureRecognizers>
+                <Label Text="&#10005;" FontSize="16" TextColor="White"
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+            <Label x:Name="ProgressLabel" Grid.Column="1" Text="1 / 1"
+                   FontSize="14" TextColor="#6B7280"
+                   HorizontalOptions="Center" VerticalOptions="Center"/>
+            <HorizontalStackLayout Grid.Column="2" Spacing="6" VerticalOptions="Center">
+                <Label Text="&#8987;" FontSize="16" TextColor="#005da1"/>
+                <Label x:Name="TotalElapsedLabel" Text="00:00"
+                       FontSize="16" FontAttributes="Bold" TextColor="#005da1"/>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="0" Padding="16">
+
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 20"
+                        BackgroundColor="#0d1f3c" Padding="20" Margin="0,0,0,16">
+                    <VerticalStackLayout Spacing="16">
+
+                        <Label x:Name="BlockNameLabel" Text=""
+                               FontSize="12" TextColor="#6B7280" HorizontalOptions="Center"/>
+
+                        <Label x:Name="ExerciseNameLabel" Text=""
+                               FontSize="20" FontAttributes="Bold" TextColor="White"
+                               HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+
+                        <Grid HorizontalOptions="Center" HeightRequest="200" WidthRequest="200">
+                            <Ellipse Stroke="#1a3a6b" StrokeThickness="14"
+                                     HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                            <GraphicsView x:Name="TimerArc"
+                                          HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="2">
+                                <Label x:Name="SerieLabel" Text="Serie 1"
+                                       FontSize="12" TextColor="#6B7280" HorizontalOptions="Center"/>
+                                <Label x:Name="TimerLabel" Text="00:00"
+                                       FontSize="40" FontAttributes="Bold" TextColor="White"
+                                       HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#112447" Padding="12,10">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label x:Name="Stat1Label" Text="Reps" FontSize="11" TextColor="#6B7280" HorizontalOptions="Center"/>
+                                    <Label x:Name="Stat1Value" Text="—" FontSize="18" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Border>
+                            <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 12"
+                                    BackgroundColor="#112447" Padding="12,10">
+                                <VerticalStackLayout Spacing="4">
+                                    <Label x:Name="Stat2Label" Text="Charge" FontSize="11" TextColor="#6B7280" HorizontalOptions="Center"/>
+                                    <Label x:Name="Stat2Value" Text="—" FontSize="18" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+
+                        <Label x:Name="NoteLabel" Text="" FontSize="12" TextColor="#4a7dbf"
+                               HorizontalOptions="Center" HorizontalTextAlignment="Center"
+                               IsVisible="False"/>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border x:Name="RecupBanner" IsVisible="False"
+                        StrokeThickness="0" StrokeShape="RoundRectangle 16"
+                        BackgroundColor="#112447" Padding="20,16" Margin="0,0,0,16">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Recuperation" FontSize="15" FontAttributes="Bold"
+                               TextColor="#005da1" HorizontalOptions="Center"/>
+                        <Label x:Name="RecupTimerLabel" Text="00:00"
+                               FontSize="34" FontAttributes="Bold" TextColor="White"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Preparez-vous pour la serie suivante"
+                               FontSize="12" TextColor="#6B7280"
+                               HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="12"
+              Padding="16,12,16,36" BackgroundColor="#071020">
+            <Button Text="Passer" BackgroundColor="#112447" TextColor="#9CA3AF"
+                    FontSize="15" HeightRequest="54" CornerRadius="27"
+                    Clicked="OnSkipClicked"/>
+            <Button Grid.Column="1" x:Name="MainActionButton" Text="Serie suivante"
+                    BackgroundColor="#005da1" TextColor="White"
+                    FontSize="15" FontAttributes="Bold"
+                    HeightRequest="54" CornerRadius="27"
+                    Clicked="OnMainActionClicked"/>
+        </Grid>
+
+    </Grid>
+</ContentPage>
