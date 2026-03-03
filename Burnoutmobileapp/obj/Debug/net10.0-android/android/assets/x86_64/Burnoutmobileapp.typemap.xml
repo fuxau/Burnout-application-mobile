@@ -1,4 +1,4 @@
-<api type="debug" assembly-name="Burnoutmobileapp" mvid="be3a403178e54c34b6878e971db8feb9">
+<api type="debug" assembly-name="Burnoutmobileapp" mvid="d68955a5ef47468a935a3d6a9ec8dd78">
   <java-to-managed>
     <entry java-name="crc64737bc405ccde1a21/MainActivity" managed-name="Burnoutmobileapp.MainActivity, Burnoutmobileapp" managed-type-token-id="33554443" />
     <entry java-name="crc64737bc405ccde1a21/MainApplication" managed-name="Burnoutmobileapp.MainApplication, Burnoutmobileapp" managed-type-token-id="33554444" />
