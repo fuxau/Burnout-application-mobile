@@ -13,6 +13,8 @@ public interface IMockDataService
     Task<Challenge?> GetChallengeByIdAsync(int id);
     Task<User> GetCurrentUserAsync();
     Task<Session> GetNextSessionAsync();
+    Task<WorkoutSession> GetTodayWorkoutSessionAsync();
+    Task<List<WorkoutSession>> GetSessionsForDateAsync(DateTime date);
     Task<bool> LoginAsync(string email, string password);
     Task<bool> RegisterForEventAsync(int eventId);
     Task<bool> JoinChallengeAsync(int challengeId);

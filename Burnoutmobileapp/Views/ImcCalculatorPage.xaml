@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Burnoutmobileapp.Views.ImcCalculatorPage"
-             BackgroundColor="#231A0F"
+             BackgroundColor="#0a1628"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="Auto,*">
         <!-- Header -->
-        <Grid Padding="16" ColumnDefinitions="Auto,*" BackgroundColor="#231A0F">
+        <Grid Padding="16" ColumnDefinitions="Auto,*" BackgroundColor="#0a1628">
             <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40">
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnBackTapped"/>
@@ -25,7 +25,7 @@
                 <VerticalStackLayout Spacing="12">
                     <Label Text="Genre" FontSize="14" TextColor="#9CA3AF"/>
                     <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
-                        <Border x:Name="MaleButton" StrokeThickness="2" Stroke="#FF8C00" StrokeShape="RoundRectangle 12" BackgroundColor="#FF8C00" Padding="16,12">
+                        <Border x:Name="MaleButton" StrokeThickness="2" Stroke="#005da1" StrokeShape="RoundRectangle 12" BackgroundColor="#005da1" Padding="16,12">
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnMaleTapped"/>
                             </Border.GestureRecognizers>
@@ -34,7 +34,7 @@
                                 <Label x:Name="MaleLabel" Text="Homme" FontSize="16" FontAttributes="Bold" TextColor="White" VerticalOptions="Center"/>
                             </HorizontalStackLayout>
                         </Border>
-                        <Border x:Name="FemaleButton" Grid.Column="1" StrokeThickness="2" Stroke="#3E301E" StrokeShape="RoundRectangle 12" BackgroundColor="Transparent" Padding="16,12">
+                        <Border x:Name="FemaleButton" Grid.Column="1" StrokeThickness="2" Stroke="#1a3a6b" StrokeShape="RoundRectangle 12" BackgroundColor="Transparent" Padding="16,12">
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnFemaleTapped"/>
                             </Border.GestureRecognizers>
@@ -47,7 +47,7 @@
                 </VerticalStackLayout>
 
                 <!-- Hauteur Slider -->
-                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315" Padding="20">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#0d1f3c" Padding="20">
                     <VerticalStackLayout Spacing="16">
                         <Grid ColumnDefinitions="*,Auto">
                             <Label Text="Hauteur" FontSize="16" TextColor="#9CA3AF"/>
@@ -56,12 +56,12 @@
                                 <Label Text="cm" FontSize="14" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,4"/>
                             </HorizontalStackLayout>
                         </Grid>
-                        <Slider x:Name="HeightSlider" Minimum="100" Maximum="220" Value="175" MinimumTrackColor="#FF8C00" MaximumTrackColor="#3E301E" ThumbColor="#FF8C00" ValueChanged="OnHeightChanged"/>
+                        <Slider x:Name="HeightSlider" Minimum="100" Maximum="220" Value="175" MinimumTrackColor="#005da1" MaximumTrackColor="#1a3a6b" ThumbColor="#005da1" ValueChanged="OnHeightChanged"/>
                     </VerticalStackLayout>
                 </Border>
 
                 <!-- Poids Slider -->
-                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315" Padding="20">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#0d1f3c" Padding="20">
                     <VerticalStackLayout Spacing="16">
                         <Grid ColumnDefinitions="*,Auto">
                             <Label Text="Poids" FontSize="16" TextColor="#9CA3AF"/>
@@ -70,12 +70,12 @@
                                 <Label Text="kg" FontSize="14" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,4"/>
                             </HorizontalStackLayout>
                         </Grid>
-                        <Slider x:Name="WeightSlider" Minimum="30" Maximum="200" Value="70" MinimumTrackColor="#FF8C00" MaximumTrackColor="#3E301E" ThumbColor="#FF8C00" ValueChanged="OnWeightChanged"/>
+                        <Slider x:Name="WeightSlider" Minimum="30" Maximum="200" Value="70" MinimumTrackColor="#005da1" MaximumTrackColor="#1a3a6b" ThumbColor="#005da1" ValueChanged="OnWeightChanged"/>
                     </VerticalStackLayout>
                 </Border>
 
                 <!-- Age Slider -->
-                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315" Padding="20">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#0d1f3c" Padding="20">
                     <VerticalStackLayout Spacing="16">
                         <Grid ColumnDefinitions="*,Auto">
                             <Label Text="Âge" FontSize="16" TextColor="#9CA3AF"/>
@@ -84,12 +84,12 @@
                                 <Label Text="ans" FontSize="14" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,4"/>
                             </HorizontalStackLayout>
                         </Grid>
-                        <Slider x:Name="AgeSlider" Minimum="10" Maximum="100" Value="25" MinimumTrackColor="#FF8C00" MaximumTrackColor="#3E301E" ThumbColor="#FF8C00" ValueChanged="OnAgeChanged"/>
+                        <Slider x:Name="AgeSlider" Minimum="10" Maximum="100" Value="25" MinimumTrackColor="#005da1" MaximumTrackColor="#1a3a6b" ThumbColor="#005da1" ValueChanged="OnAgeChanged"/>
                     </VerticalStackLayout>
                 </Border>
 
                 <!-- IMC Result -->
-                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#2E2315" Padding="24">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#0d1f3c" Padding="24">
                     <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
                         <Label Text="VOTRE IMC" FontSize="12" TextColor="#9CA3AF" HorizontalOptions="Center"/>
                         <Label x:Name="ImcValue" Text="22.9" FontSize="56" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>

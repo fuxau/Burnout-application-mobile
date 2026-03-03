@@ -5,21 +5,21 @@
 
     <!-- Call of Phoenix Theme Colors -->
     
-    <!-- Primary Orange -->
-    <Color x:Key="Primary">#FF8C00</Color>
-    <Color x:Key="PrimaryLight">#F98C06</Color>
-    <Color x:Key="PrimaryDark">#E67E00</Color>
+    <!-- Primary Blue -->
+    <Color x:Key="Primary">#005da1</Color>
+    <Color x:Key="PrimaryLight">#1a6eaf</Color>
+    <Color x:Key="PrimaryDark">#004d88</Color>
     
     <!-- Background Colors -->
-    <Color x:Key="BackgroundDark">#231A0F</Color>
+    <Color x:Key="BackgroundDark">#0a1628</Color>
     <Color x:Key="BackgroundLight">#F8F7F5</Color>
     
     <!-- Surface Colors -->
-    <Color x:Key="SurfaceDark">#2E2315</Color>
-    <Color x:Key="SurfaceDark2">#362817</Color>
+    <Color x:Key="SurfaceDark">#0d1f3c</Color>
+    <Color x:Key="SurfaceDark2">#112447</Color>
     <Color x:Key="SurfaceLight">#FFFFFF</Color>
-    <Color x:Key="SurfaceBorder">#3E301E</Color>
-    <Color x:Key="InputBackground">#2A2016</Color>
+    <Color x:Key="SurfaceBorder">#1a3a6b</Color>
+    <Color x:Key="InputBackground">#0f1e38</Color>
     
     <!-- Text Colors -->
     <Color x:Key="TextPrimary">#FFFFFF</Color>
@@ -51,10 +51,10 @@
     <Color x:Key="Gray950">#030712</Color>
     
     <!-- Missing colors required by Styles.xaml -->
-    <Color x:Key="MidnightBlue">#1E3A5F</Color>
-    <Color x:Key="OffBlack">#1A1A1A</Color>
-    <Color x:Key="Magenta">#FF8C00</Color>
-    <Color x:Key="Secondary">#FF8C00</Color>
+    <Color x:Key="MidnightBlue">#003d6e</Color>
+    <Color x:Key="OffBlack">#071020</Color>
+    <Color x:Key="Magenta">#005da1</Color>
+    <Color x:Key="Secondary">#005da1</Color>
     <Color x:Key="PrimaryDarkText">#FFFFFF</Color>
     <Color x:Key="SecondaryDarkText">#E5E7EB</Color>
     

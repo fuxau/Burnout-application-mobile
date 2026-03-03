@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Burnoutmobileapp.Views.LoginPage"
-             BackgroundColor="#231A0F">
+             BackgroundColor="#0a1628">
 
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="20" VerticalOptions="Center">
@@ -16,7 +16,7 @@
                 <Label Text="Call of Phoenix"
                        FontSize="32"
                        FontAttributes="Bold"
-                       TextColor="#FF8C00"
+                       TextColor="#005da1"
                        HorizontalOptions="Center"/>
                 
                 <Label Text="RISE • TRAIN • TRANSCEND"
@@ -30,9 +30,9 @@
                 
                 <!-- Email Field -->
                 <Border StrokeThickness="1"
-                        Stroke="#FF8C0066"
+                        Stroke="#005da166"
                         StrokeShape="RoundRectangle 12"
-                        BackgroundColor="#2E2315"
+                        BackgroundColor="#0d1f3c"
                         HeightRequest="56">
                     <Grid ColumnDefinitions="50,*">
                         <Label Text="📧" 
@@ -52,9 +52,9 @@
 
                 <!-- Password Field -->
                 <Border StrokeThickness="1"
-                        Stroke="#FF8C0066"
+                        Stroke="#005da166"
                         StrokeShape="RoundRectangle 12"
-                        BackgroundColor="#2E2315"
+                        BackgroundColor="#0d1f3c"
                         HeightRequest="56">
                     <Grid ColumnDefinitions="50,*">
                         <Label Text="🔒" 
@@ -76,7 +76,7 @@
                 <Button Text="Se connecter"
                         x:Name="LoginButton"
                         Clicked="OnLoginClicked"
-                        BackgroundColor="#FF8C00"
+                        BackgroundColor="#005da1"
                         TextColor="White"
                         FontSize="18"
                         FontAttributes="Bold"
@@ -91,7 +91,7 @@
                        TextColor="#9CA3AF"
                        FontSize="14"/>
                 <Label Text="Rejoindre le Phoenix"
-                       TextColor="#FF8C00"
+                       TextColor="#005da1"
                        FontSize="14"
                        FontAttributes="Bold"/>
             </HorizontalStackLayout>

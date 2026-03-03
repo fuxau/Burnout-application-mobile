@@ -31,8 +31,7 @@
                        TextColor="{StaticResource White}"/>
                 <Label Text="NOUVELLE SESSION"
                        FontSize="10"
-                       TextColor="{StaticResource Gray400}"
-                       LetterSpacing="1"/>
+                       TextColor="{StaticResource Gray400}"/>
             </VerticalStackLayout>
         </Grid>
 

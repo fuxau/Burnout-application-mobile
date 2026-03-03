@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Burnoutmobileapp.Views.EditProfilePage"
-             BackgroundColor="#231A0F"
+             BackgroundColor="#0a1628"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions="Auto,*">
         <!-- Header -->
-        <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" BackgroundColor="#231A0F">
+        <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" BackgroundColor="#0a1628">
             <HorizontalStackLayout Spacing="8">
                 <HorizontalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnBackTapped"/>
@@ -25,10 +25,10 @@
                 <!-- Profile Picture -->
                 <VerticalStackLayout HorizontalOptions="Center" Spacing="0">
                     <Grid HeightRequest="112" WidthRequest="112">
-                        <Border StrokeThickness="3" Stroke="#FF8C00" StrokeShape="RoundRectangle 56" HeightRequest="112" WidthRequest="112">
+                        <Border StrokeThickness="3" Stroke="#005da1" StrokeShape="RoundRectangle 56" HeightRequest="112" WidthRequest="112">
                             <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuAybvQxmSQuXivTHv21xeh35fRUsdZQO5YhYuIGnEFn2T0yfV1kUDli6rwsnHR6qB6x-MDQLlb1wk7v-j0zr9zjDuCwiBGGmba5gj3hd0xbwSiYPzgIDqfkPCgvBzBe5MqOCHTN1eGBTZ6V-O8oR92L9PaCCnwxa0bPyFcobtyQUTJfLGq9-MC1XLVQ7YCqFJRq3Q1rukSdJtM09ZVmBAG45WiCZe1-eD0onHoxM0uWjn6xkKZgigPDEfhNIv_mO2cjjwEwnj79E3T7" Aspect="AspectFill"/>
                         </Border>
-                        <Border StrokeThickness="3" Stroke="#231A0F" StrokeShape="RoundRectangle 14" BackgroundColor="#FF8C00" HeightRequest="28" WidthRequest="28" HorizontalOptions="End" VerticalOptions="End">
+                        <Border StrokeThickness="3" Stroke="#0a1628" StrokeShape="RoundRectangle 14" BackgroundColor="#005da1" HeightRequest="28" WidthRequest="28" HorizontalOptions="End" VerticalOptions="End">
                             <Label Text="✏️" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center"/>
                         </Border>
                     </Grid>
@@ -95,7 +95,7 @@
                 </VerticalStackLayout>
 
                 <!-- Confirm Button -->
-                <Button Text="Confirmer les modifications" BackgroundColor="#FF8C00" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="56" CornerRadius="12" Margin="0,16,0,0" Clicked="OnConfirmClicked"/>
+                <Button Text="Confirmer les modifications" BackgroundColor="#005da1" TextColor="White" FontSize="16" FontAttributes="Bold" HeightRequest="56" CornerRadius="12" Margin="0,16,0,0" Clicked="OnConfirmClicked"/>
 
                 <BoxView HeightRequest="40" Color="Transparent"/>
             </VerticalStackLayout>

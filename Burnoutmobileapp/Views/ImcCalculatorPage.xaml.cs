@@ -1,4 +1,4 @@
-namespace Burnoutmobileapp.Views;
+﻿namespace Burnoutmobileapp.Views;
 
 public partial class ImcCalculatorPage : ContentPage
 {
@@ -18,13 +18,13 @@ public partial class ImcCalculatorPage : ContentPage
     private void OnMaleTapped(object sender, TappedEventArgs e)
     {
         _isMale = true;
-        MaleButton.BackgroundColor = Color.FromArgb("#FF8C00");
-        MaleButton.Stroke = Color.FromArgb("#FF8C00");
+        MaleButton.BackgroundColor = Color.FromArgb("#005da1");
+        MaleButton.Stroke = Color.FromArgb("#005da1");
         MaleLabel.TextColor = Colors.White;
         MaleLabel.FontAttributes = FontAttributes.Bold;
 
         FemaleButton.BackgroundColor = Colors.Transparent;
-        FemaleButton.Stroke = Color.FromArgb("#3E301E");
+        FemaleButton.Stroke = Color.FromArgb("#1a3a6b");
         FemaleLabel.TextColor = Color.FromArgb("#9CA3AF");
         FemaleLabel.FontAttributes = FontAttributes.None;
 
@@ -34,13 +34,13 @@ public partial class ImcCalculatorPage : ContentPage
     private void OnFemaleTapped(object sender, TappedEventArgs e)
     {
         _isMale = false;
-        FemaleButton.BackgroundColor = Color.FromArgb("#FF8C00");
-        FemaleButton.Stroke = Color.FromArgb("#FF8C00");
+        FemaleButton.BackgroundColor = Color.FromArgb("#005da1");
+        FemaleButton.Stroke = Color.FromArgb("#005da1");
         FemaleLabel.TextColor = Colors.White;
         FemaleLabel.FontAttributes = FontAttributes.Bold;
 
         MaleButton.BackgroundColor = Colors.Transparent;
-        MaleButton.Stroke = Color.FromArgb("#3E301E");
+        MaleButton.Stroke = Color.FromArgb("#1a3a6b");
         MaleLabel.TextColor = Color.FromArgb("#9CA3AF");
         MaleLabel.FontAttributes = FontAttributes.None;
 

@@ -310,8 +310,7 @@
                             <VerticalStackLayout Spacing="4">
                                 <Label Text="AUJOURD'HUI"
                                        FontSize="10"
-                                       TextColor="{StaticResource Gray500}"
-                                       LetterSpacing="1"/>
+                                       TextColor="{StaticResource Gray500}"/>
                                 <Label Text="{Binding Challenge.TodayTask}"
                                        FontSize="16"
                                        TextColor="{StaticResource White}"/>

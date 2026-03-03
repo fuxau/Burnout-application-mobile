@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Burnoutmobileapp.Views.HomePage"
-             BackgroundColor="#231A0F"
+             BackgroundColor="#0a1628"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
 
@@ -11,7 +11,7 @@
         <VerticalStackLayout Spacing="0">
             
             <!-- Header -->
-            <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" BackgroundColor="#231A0F">
+            <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" BackgroundColor="#0a1628">
                 <Button Text="🔔" FontSize="24" BackgroundColor="Transparent" WidthRequest="44" HeightRequest="44"/>
                 <Border Grid.Column="2" StrokeThickness="1" Stroke="#4B5563" StrokeShape="RoundRectangle 22" HeightRequest="44" WidthRequest="44">
                     <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuChczTw1U0h0VKwTKdjLRRkAR7NP0QVf5rK1iTMd6RIFm6qAv1OVvVKuVhy5lbv9br6o-ODVeLp_SO4rq-FnLNyOD8v9OAWJzDbCNHquLx9ikYCx7qgzSz18tMGNl5jjkoIDlaLryfpXls_2tzvyiHnB8Rhr-zlCZwrgJ1TE1c_pYL3agbleZjfvokoy9DcpdydV8XSIa13UxXcmAYrnLsj_e_d53x3kf15Pl0QRyRg_9Cfrx8_Rtywc5__REFmlkV0a4cPzYa3VnJ8" Aspect="AspectFill"/>
@@ -25,9 +25,9 @@
             </VerticalStackLayout>
 
             <!-- Gym Access Card -->
-            <Border Margin="16,0,16,16" StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#362817" Padding="0">
+            <Border Margin="16,0,16,16" StrokeThickness="0" StrokeShape="RoundRectangle 16" BackgroundColor="#112447" Padding="0">
                 <Grid Padding="24" RowDefinitions="Auto,Auto,Auto" RowSpacing="12">
-                    <Border HorizontalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 40" BackgroundColor="#FF8C00" HeightRequest="80" WidthRequest="80">
+                    <Border HorizontalOptions="Center" StrokeThickness="0" StrokeShape="RoundRectangle 40" BackgroundColor="#005da1" HeightRequest="80" WidthRequest="80">
                         <Label Text="📶" FontSize="36" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </Border>
                     <Label Grid.Row="1" Text="Accès Salle" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
@@ -38,7 +38,7 @@
             <!-- Stats Grid -->
             <Grid Margin="16,0,16,24" ColumnDefinitions="*,*" ColumnSpacing="12">
                 <!-- Visits Card -->
-                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#362817" Padding="16">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#112447" Padding="16">
                     <VerticalStackLayout Spacing="8">
                         <HorizontalStackLayout Spacing="8">
                             <Label Text="📅" FontSize="18"/>
@@ -52,7 +52,7 @@
                 </Border>
 
                 <!-- Calories Card -->
-                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#362817" Padding="16">
+                <Border Grid.Column="1" StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#112447" Padding="16">
                     <VerticalStackLayout Spacing="8">
                         <HorizontalStackLayout Spacing="8">
                             <Label Text="🔥" FontSize="18"/>
@@ -70,16 +70,16 @@
             <VerticalStackLayout Padding="16,0" Spacing="12">
                 <Grid ColumnDefinitions="*,Auto">
                     <Label Text="Prochaine Séance" FontSize="18" FontAttributes="Bold" TextColor="White"/>
-                    <Label Grid.Column="1" Text="Voir tout" FontSize="14" TextColor="#FF8C00"/>
+                    <Label Grid.Column="1" Text="Voir tout" FontSize="14" TextColor="#005da1"/>
                 </Grid>
 
-                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#362817">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 12" BackgroundColor="#112447">
                     <Grid ColumnDefinitions="120,*">
                         <Image Source="https://lh3.googleusercontent.com/aida-public/AB6AXuAnIGVS58sxYo_FKXHXKtyEgb2kkO8XU25VsgQSiG_Y4HM0jzAPAZjWlsscSm1nc1izJJGVT6eALKE2jmjNDWUqujqycDGpDe-QWZT4gQD9-lALkDGKJJrb2hgGenlHDp9BR6-QPC1s2I6aQTIZC41p4lYSLdI9VIWJwMfQ0hVOIX1ANpO1B0LnqhuqiZLbtUnfVWFki0Jonyn69R7wNgOLLGZamh6yYV58KtsfTr9sjzcln-wx5bwwtJA02rvSv6Oi7fcs2PqaKyPZ" Aspect="AspectFill" HeightRequest="130"/>
                         <VerticalStackLayout Grid.Column="1" Padding="16" Spacing="4" VerticalOptions="Center">
                             <Label Text="Chest Day" FontSize="18" FontAttributes="Bold" TextColor="White"/>
                             <HorizontalStackLayout Spacing="6">
-                                <Label Text="⏰" FontSize="14" TextColor="#FF8C00"/>
+                                <Label Text="⏰" FontSize="14" TextColor="#005da1"/>
                                 <Label Text="Aujourd'hui, 17h30" FontSize="14" TextColor="#D1D5DB"/>
                             </HorizontalStackLayout>
                             <HorizontalStackLayout Spacing="8" Margin="0,8,0,0">
@@ -88,8 +88,8 @@
                                 </Border>
                                 <Label Text="Coach Marc" FontSize="12" TextColor="#9CA3AF" VerticalOptions="Center"/>
                             </HorizontalStackLayout>
-                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#FF8C001A" Padding="8,4" HorizontalOptions="Start" Margin="0,4,0,0">
-                                <Label Text="FORCE" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                            <Border StrokeThickness="0" StrokeShape="RoundRectangle 4" BackgroundColor="#1A005da1" Padding="8,4" HorizontalOptions="Start" Margin="0,4,0,0">
+                                <Label Text="FORCE" FontSize="10" FontAttributes="Bold" TextColor="#005da1"/>
                             </Border>
                         </VerticalStackLayout>
                     </Grid>
@@ -97,12 +97,12 @@
             </VerticalStackLayout>
 
             <!-- Events Section -->
-            <Border Margin="16,24,16,16" StrokeThickness="1" Stroke="#3E301E" StrokeShape="RoundRectangle 12" BackgroundColor="#362817" Padding="16">
+            <Border Margin="16,24,16,16" StrokeThickness="1" Stroke="#1a3a6b" StrokeShape="RoundRectangle 12" BackgroundColor="#112447" Padding="16">
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnEventsTapped"/>
                 </Border.GestureRecognizers>
                 <Grid ColumnDefinitions="Auto,*,Auto">
-                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 24" BackgroundColor="#FF8C001A" HeightRequest="48" WidthRequest="48">
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 24" BackgroundColor="#1A005da1" HeightRequest="48" WidthRequest="48">
                         <Label Text="📅" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </Border>
                     <VerticalStackLayout Grid.Column="1" Margin="16,0" VerticalOptions="Center">
@@ -128,13 +128,13 @@
                                 <BoxView Color="Black" Opacity="0.5"/>
                                 <VerticalStackLayout VerticalOptions="End" Padding="16">
                                     <Grid ColumnDefinitions="*,Auto">
-                                        <Label Text="JOURS 12/30" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                        <Label Text="JOURS 12/30" FontSize="10" FontAttributes="Bold" TextColor="#005da1"/>
                                         <Label Grid.Column="1" Text="🔥" FontSize="14"/>
                                     </Grid>
                                     <Label Text="30 Day Squat" FontSize="18" FontAttributes="Bold" TextColor="White"/>
                                     <Grid HeightRequest="4" Margin="0,8,0,0">
                                         <BoxView BackgroundColor="#374151" CornerRadius="2"/>
-                                        <BoxView BackgroundColor="#FF8C00" CornerRadius="2" HorizontalOptions="Start" WidthRequest="100"/>
+                                        <BoxView BackgroundColor="#005da1" CornerRadius="2" HorizontalOptions="Start" WidthRequest="100"/>
                                     </Grid>
                                 </VerticalStackLayout>
                             </Grid>
@@ -147,13 +147,13 @@
                                 <BoxView Color="Black" Opacity="0.5"/>
                                 <VerticalStackLayout VerticalOptions="End" Padding="16">
                                     <Grid ColumnDefinitions="*,Auto">
-                                        <Label Text="JOURS 5/7" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00"/>
+                                        <Label Text="JOURS 5/7" FontSize="10" FontAttributes="Bold" TextColor="#005da1"/>
                                         <Label Grid.Column="1" Text="🚣" FontSize="14"/>
                                     </Grid>
                                     <Label Text="Phoenix Rising" FontSize="18" FontAttributes="Bold" TextColor="White"/>
                                     <Grid HeightRequest="4" Margin="0,8,0,0">
                                         <BoxView BackgroundColor="#374151" CornerRadius="2"/>
-                                        <BoxView BackgroundColor="#FF8C00" CornerRadius="2" HorizontalOptions="Start" WidthRequest="180"/>
+                                        <BoxView BackgroundColor="#005da1" CornerRadius="2" HorizontalOptions="Start" WidthRequest="180"/>
                                     </Grid>
                                 </VerticalStackLayout>
                             </Grid>
@@ -169,12 +169,12 @@
     </ScrollView>
 
     <!-- Custom Footer Tab Bar -->
-    <Border Grid.Row="1" BackgroundColor="#1E160D" StrokeThickness="0" Padding="0">
+    <Border Grid.Row="1" BackgroundColor="#071020" StrokeThickness="0" Padding="0">
         <Grid ColumnDefinitions="*,*,*,*,*" HeightRequest="88" Padding="0,0,0,20">
             <!-- Accueil - Active -->
             <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
                 <Label Text="🏠" FontSize="24" HorizontalOptions="Center"/>
-                <Label Text="Accueil" FontSize="10" FontAttributes="Bold" TextColor="#FF8C00" HorizontalOptions="Center"/>
+                <Label Text="Accueil" FontSize="10" FontAttributes="Bold" TextColor="#005da1" HorizontalOptions="Center"/>
             </VerticalStackLayout>
             
             <!-- Agenda -->
@@ -188,7 +188,7 @@
             
             <!-- Add Button (Center) -->
             <Grid Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
-                <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#FF8C00" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#005da1" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
                     <Label Text="+" FontSize="32" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </Border>
             </Grid>

@@ -270,4 +270,257 @@ public class MockDataService : IMockDataService
         }
         return Task.FromResult(false);
     }
+
+    public Task<WorkoutSession> GetTodayWorkoutSessionAsync()
+    {
+        var session = new WorkoutSession
+        {
+            Id = 1,
+            Title = "Séance Musculation",
+            ProgramName = "Programme Force Erik",
+            WeekLabel = "Semaine 1",
+            SessionLabel = "Séance 1",
+            Type = "MUSCU",
+            Date = DateTime.Today,
+            Time = new TimeSpan(17, 30, 0),
+            Coach = _coaches[5],
+            Blocks = new List<WorkoutBlock>
+            {
+                new WorkoutBlock
+                {
+                    Name = "Échauffement Prophylactique",
+                    Exercises = new List<WorkoutExercise>
+                    {
+                        new WorkoutExercise
+                        {
+                            Id = 1,
+                            Name = "Rotation épaules + mobilité hanches",
+                            SeriesCount = 2,
+                            RepsPerSerie = 10,
+                            RecupSeconds = 0,
+                            Note = "Mouvement lent et contrôlé",
+                            Sets = new List<WorkoutSet>
+                            {
+                                new WorkoutSet { SetNumber = 1, Reps = 10 },
+                                new WorkoutSet { SetNumber = 2, Reps = 10 }
+                            }
+                        }
+                    }
+                },
+                new WorkoutBlock
+                {
+                    Name = "Core",
+                    Exercises = new List<WorkoutExercise>
+                    {
+                        new WorkoutExercise
+                        {
+                            Id = 2,
+                            Name = "Gainage planche",
+                            SeriesCount = 3,
+                            RepsPerSerie = 1,
+                            RecupSeconds = 60,
+                            Note = "Tenir 30 secondes par série",
+                            Sets = new List<WorkoutSet>
+                            {
+                                new WorkoutSet { SetNumber = 1, Duration = 30 },
+                                new WorkoutSet { SetNumber = 2, Duration = 30 },
+                                new WorkoutSet { SetNumber = 3, Duration = 30 }
+                            }
+                        },
+                        new WorkoutExercise
+                        {
+                            Id = 3,
+                            Name = "Crunch bicycle",
+                            SeriesCount = 3,
+                            RepsPerSerie = 15,
+                            RecupSeconds = 45,
+                            Sets = new List<WorkoutSet>
+                            {
+                                new WorkoutSet { SetNumber = 1, Reps = 15 },
+                                new WorkoutSet { SetNumber = 2, Reps = 15 },
+                                new WorkoutSet { SetNumber = 3, Reps = 15 }
+                            }
+                        }
+                    }
+                },
+                new WorkoutBlock
+                {
+                    Name = "Force - Poussée",
+                    Exercises = new List<WorkoutExercise>
+                    {
+                        new WorkoutExercise
+                        {
+                            Id = 4,
+                            Name = "Développé couché barre",
+                            SeriesCount = 4,
+                            RepsPerSerie = 8,
+                            RecupSeconds = 120,
+                            Note = "CTI > 1 alors charge indispensable",
+                            Sets = new List<WorkoutSet>
+                            {
+                                new WorkoutSet { SetNumber = 1, Reps = 8, Weight = 80 },
+                                new WorkoutSet { SetNumber = 2, Reps = 8, Weight = 82.5 },
+                                new WorkoutSet { SetNumber = 3, Reps = 8, Weight = 85 },
+                                new WorkoutSet { SetNumber = 4, Reps = 8, Weight = 85 }
+                            }
+                        },
+                        new WorkoutExercise
+                        {
+                            Id = 5,
+                            Name = "Développé incliné haltères",
+                            SeriesCount = 3,
+                            RepsPerSerie = 10,
+                            RecupSeconds = 90,
+                            Sets = new List<WorkoutSet>
+                            {
+                                new WorkoutSet { SetNumber = 1, Reps = 10, Weight = 28 },
+                                new WorkoutSet { SetNumber = 2, Reps = 10, Weight = 30 },
+                                new WorkoutSet { SetNumber = 3, Reps = 10, Weight = 30 }
+                            }
+                        },
+                        new WorkoutExercise
+                        {
+                            Id = 6,
+                            Name = "Dips lestés",
+                            SeriesCount = 3,
+                            RepsPerSerie = 10,
+                            RecupSeconds = 90,
+                            Sets = new List<WorkoutSet>
+                            {
+                                new WorkoutSet { SetNumber = 1, Reps = 10, Weight = 10 },
+                                new WorkoutSet { SetNumber = 2, Reps = 10, Weight = 10 },
+                                new WorkoutSet { SetNumber = 3, Reps = 10, Weight = 10 }
+                            }
+                        }
+                    }
+                },
+                new WorkoutBlock
+                {
+                    Name = "Accessoire - Épaules / Triceps",
+                    Exercises = new List<WorkoutExercise>
+                    {
+                        new WorkoutExercise
+                        {
+                            Id = 7,
+                            Name = "Élévations latérales haltères",
+                            SeriesCount = 3,
+                            RepsPerSerie = 15,
+                            RecupSeconds = 60,
+                            Sets = new List<WorkoutSet>
+                            {
+                                new WorkoutSet { SetNumber = 1, Reps = 15, Weight = 10 },
+                                new WorkoutSet { SetNumber = 2, Reps = 15, Weight = 10 },
+                                new WorkoutSet { SetNumber = 3, Reps = 15, Weight = 10 }
+                            }
+                        },
+                        new WorkoutExercise
+                        {
+                            Id = 8,
+                            Name = "Triceps poulie haute",
+                            SeriesCount = 3,
+                            RepsPerSerie = 12,
+                            RecupSeconds = 60,
+                            Sets = new List<WorkoutSet>
+                            {
+                                new WorkoutSet { SetNumber = 1, Reps = 12, Weight = 25 },
+                                new WorkoutSet { SetNumber = 2, Reps = 12, Weight = 25 },
+                                new WorkoutSet { SetNumber = 3, Reps = 12, Weight = 27.5 }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        return Task.FromResult(session);
+    }
+
+    public Task<List<WorkoutSession>> GetSessionsForDateAsync(DateTime date)
+    {
+        var dayOfWeek = date.DayOfWeek;
+        var sessions = new List<WorkoutSession>();
+
+        if (dayOfWeek == DayOfWeek.Monday || dayOfWeek == DayOfWeek.Wednesday || dayOfWeek == DayOfWeek.Friday)
+        {
+            sessions.Add(new WorkoutSession
+            {
+                Id = 1,
+                Title = "Séance Musculation",
+                ProgramName = "Programme Force Erik",
+                WeekLabel = "Semaine 1",
+                SessionLabel = "Séance 1",
+                Type = "MUSCU",
+                Date = date,
+                Time = new TimeSpan(17, 30, 0),
+                Coach = _coaches[5],
+                Blocks = new List<WorkoutBlock>
+                {
+                    new WorkoutBlock
+                    {
+                        Name = "Échauffement Prophylactique",
+                        Exercises = new List<WorkoutExercise>
+                        {
+                            new WorkoutExercise { Id = 1, Name = "Rotation épaules + mobilité hanches", SeriesCount = 2, RepsPerSerie = 10, RecupSeconds = 0, Note = "Mouvement lent et contrôlé", Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Reps = 10 }, new WorkoutSet { SetNumber = 2, Reps = 10 } } }
+                        }
+                    },
+                    new WorkoutBlock
+                    {
+                        Name = "Force - Poussée",
+                        Exercises = new List<WorkoutExercise>
+                        {
+                            new WorkoutExercise { Id = 2, Name = "Développé couché barre", SeriesCount = 4, RepsPerSerie = 8, RecupSeconds = 120, Note = "Charge indispensable", Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Reps = 8, Weight = 80 }, new WorkoutSet { SetNumber = 2, Reps = 8, Weight = 82.5 }, new WorkoutSet { SetNumber = 3, Reps = 8, Weight = 85 }, new WorkoutSet { SetNumber = 4, Reps = 8, Weight = 85 } } },
+                            new WorkoutExercise { Id = 3, Name = "Développé incliné haltères", SeriesCount = 3, RepsPerSerie = 10, RecupSeconds = 90, Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Reps = 10, Weight = 28 }, new WorkoutSet { SetNumber = 2, Reps = 10, Weight = 30 }, new WorkoutSet { SetNumber = 3, Reps = 10, Weight = 30 } } },
+                            new WorkoutExercise { Id = 4, Name = "Dips lestés", SeriesCount = 3, RepsPerSerie = 10, RecupSeconds = 90, Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Reps = 10, Weight = 10 }, new WorkoutSet { SetNumber = 2, Reps = 10, Weight = 10 }, new WorkoutSet { SetNumber = 3, Reps = 10, Weight = 10 } } }
+                        }
+                    },
+                    new WorkoutBlock
+                    {
+                        Name = "Accessoire - Épaules / Triceps",
+                        Exercises = new List<WorkoutExercise>
+                        {
+                            new WorkoutExercise { Id = 5, Name = "Élévations latérales haltères", SeriesCount = 3, RepsPerSerie = 15, RecupSeconds = 60, Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Reps = 15, Weight = 10 }, new WorkoutSet { SetNumber = 2, Reps = 15, Weight = 10 }, new WorkoutSet { SetNumber = 3, Reps = 15, Weight = 10 } } },
+                            new WorkoutExercise { Id = 6, Name = "Triceps poulie haute", SeriesCount = 3, RepsPerSerie = 12, RecupSeconds = 60, Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Reps = 12, Weight = 25 }, new WorkoutSet { SetNumber = 2, Reps = 12, Weight = 25 }, new WorkoutSet { SetNumber = 3, Reps = 12, Weight = 27.5 } } }
+                        }
+                    }
+                }
+            });
+        }
+        else if (dayOfWeek == DayOfWeek.Tuesday || dayOfWeek == DayOfWeek.Thursday)
+        {
+            sessions.Add(new WorkoutSession
+            {
+                Id = 2,
+                Title = "Séance Cardio",
+                ProgramName = "Programme Force Erik",
+                WeekLabel = "Semaine 1",
+                SessionLabel = "Séance Cardio",
+                Type = "CARDIO",
+                Date = date,
+                Time = new TimeSpan(7, 0, 0),
+                Coach = _coaches[2],
+                Blocks = new List<WorkoutBlock>
+                {
+                    new WorkoutBlock
+                    {
+                        Name = "Échauffement",
+                        Exercises = new List<WorkoutExercise>
+                        {
+                            new WorkoutExercise { Id = 1, Name = "Gainage planche", SeriesCount = 3, RepsPerSerie = 1, RecupSeconds = 60, Note = "Tenir 30 secondes", Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Duration = 30 }, new WorkoutSet { SetNumber = 2, Duration = 30 }, new WorkoutSet { SetNumber = 3, Duration = 30 } } },
+                            new WorkoutExercise { Id = 2, Name = "Crunch bicycle", SeriesCount = 3, RepsPerSerie = 15, RecupSeconds = 45, Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Reps = 15 }, new WorkoutSet { SetNumber = 2, Reps = 15 }, new WorkoutSet { SetNumber = 3, Reps = 15 } } }
+                        }
+                    },
+                    new WorkoutBlock
+                    {
+                        Name = "Cardio Principal",
+                        Exercises = new List<WorkoutExercise>
+                        {
+                            new WorkoutExercise { Id = 3, Name = "Course à pied", SeriesCount = 1, RepsPerSerie = 1, RecupSeconds = 0, Note = "Allure modérée", Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Duration = 1800 } } },
+                            new WorkoutExercise { Id = 4, Name = "Vélo elliptique", SeriesCount = 3, RepsPerSerie = 1, RecupSeconds = 30, Sets = new List<WorkoutSet> { new WorkoutSet { SetNumber = 1, Duration = 300 }, new WorkoutSet { SetNumber = 2, Duration = 300 }, new WorkoutSet { SetNumber = 3, Duration = 300 } } }
+                        }
+                    }
+                }
+            });
+        }
+
+        return Task.FromResult(sessions);
+    }
 }
