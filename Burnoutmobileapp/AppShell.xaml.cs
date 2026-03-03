@@ -13,5 +13,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("challenge", typeof(ChallengePage));
         Routing.RegisterRoute("sessiondetail", typeof(SessionDetailPage));
         Routing.RegisterRoute("workouttimer", typeof(WorkoutTimerPage));
+        Routing.RegisterRoute("workoutrpe", typeof(WorkoutRpePage));
+        Routing.RegisterRoute("workoutsummary", typeof(WorkoutSummaryPage));
     }
 }
