@@ -140,13 +140,13 @@
                     <Label Text="&#128197;" FontSize="24" HorizontalOptions="Center"/>
                     <Label Text="Agenda" FontSize="10" FontAttributes="Bold" TextColor="#005da1" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
-                <Grid Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
-                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 28"
-                            BackgroundColor="#005da1" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
-                        <Label Text="+" FontSize="32" FontAttributes="Bold" TextColor="White"
-                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                    </Border>
-                </Grid>
+                <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFeedTapped"/>
+                    </VerticalStackLayout.GestureRecognizers>
+                    <Label Text="&#127942;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="Feed" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
                     <VerticalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnCoachTapped"/>

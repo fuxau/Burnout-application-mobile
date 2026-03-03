@@ -231,6 +231,9 @@ public partial class EventsPage : ContentPage
     private async void OnAccueilTapped(object sender, TappedEventArgs e) =>
         await Shell.Current.GoToAsync("//home");
 
+    private async void OnFeedTapped(object sender, TappedEventArgs e) =>
+        await Shell.Current.GoToAsync("feed");
+
     private async void OnCoachTapped(object sender, TappedEventArgs e) =>
         await Shell.Current.GoToAsync("//coach");
 
