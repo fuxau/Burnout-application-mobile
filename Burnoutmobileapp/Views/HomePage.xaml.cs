@@ -26,4 +26,9 @@ public partial class HomePage : ContentPage
     {
         await Shell.Current.GoToAsync("//events");
     }
+
+    private async void OnFeedTapped(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync("feed");
+    }
 }

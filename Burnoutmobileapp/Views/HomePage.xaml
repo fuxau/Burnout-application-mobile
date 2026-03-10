@@ -186,12 +186,15 @@
                 <Label Text="Agenda" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
             </VerticalStackLayout>
             
-            <!-- Add Button (Center) -->
-            <Grid Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
-                <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#005da1" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
-                    <Label Text="&#xE145;" FontFamily="MaterialIcons" FontSize="30" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <!-- Feed Button (Center) -->
+            <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFeedTapped"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#005da1" HeightRequest="56" WidthRequest="56" HorizontalOptions="Center">
+                    <Label Text="&#xEA14;" FontFamily="MaterialIcons" FontSize="26" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </Border>
-            </Grid>
+            </VerticalStackLayout>
             
             <!-- Coach -->
             <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">

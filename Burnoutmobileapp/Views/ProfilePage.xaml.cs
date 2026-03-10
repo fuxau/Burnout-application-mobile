@@ -63,4 +63,9 @@ public partial class ProfilePage : ContentPage
             BloodTypeLabel.Text = action;
         }
     }
+
+    private async void OnFeedTapped(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync("feed");
+    }
 }

@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Burnoutmobileapp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+c122e6118b497b292b6563d46684501cb2502bd2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+2a85d1034d9ef0b61709a31c5870c4696e6fce53")]
 [assembly: System.Reflection.AssemblyProductAttribute("Burnoutmobileapp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Burnoutmobileapp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
