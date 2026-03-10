@@ -17,7 +17,8 @@
                     <Border Grid.Column="1" StrokeThickness="1" Stroke="#1a3a6b"
                             StrokeShape="RoundRectangle 20" BackgroundColor="#0d1f3c"
                             HeightRequest="40" WidthRequest="40">
-                        <Label Text="&#128197;" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label Text="&#xE935;" FontFamily="MaterialIcons" FontSize="20"
+                               HorizontalOptions="Center" VerticalOptions="Center" TextColor="#005da1"/>
                     </Border>
                 </Grid>
 
@@ -96,38 +97,52 @@
             </VerticalStackLayout>
         </ScrollView>
 
+        <!-- Footer: Agenda page has Feed in center instead of + -->
         <Border Grid.Row="1" BackgroundColor="#071020" StrokeThickness="0" Padding="0">
             <Grid ColumnDefinitions="*,*,*,*,*" HeightRequest="88" Padding="0,0,0,20">
+                <!-- Accueil -->
                 <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
                     <VerticalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnAccueilTapped"/>
                     </VerticalStackLayout.GestureRecognizers>
-                    <Label Text="&#127968;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="&#xE88A;" FontFamily="MaterialIcons" FontSize="24"
+                           TextColor="#6B7280" HorizontalOptions="Center"/>
                     <Label Text="Accueil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
+                <!-- Agenda (active) -->
                 <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
-                    <Label Text="&#128197;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="&#xE935;" FontFamily="MaterialIcons" FontSize="24"
+                           TextColor="#005da1" HorizontalOptions="Center"/>
                     <Label Text="Agenda" FontSize="10" FontAttributes="Bold" TextColor="#005da1" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
+                <!-- Feed (center, replaces + on this page) -->
                 <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
                     <VerticalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnFeedTapped"/>
                     </VerticalStackLayout.GestureRecognizers>
-                    <Label Text="&#127942;" FontSize="24" HorizontalOptions="Center"/>
-                    <Label Text="Feed" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
+                    <Border StrokeThickness="0" StrokeShape="RoundRectangle 28"
+                            BackgroundColor="#005da1" HeightRequest="56" WidthRequest="56"
+                            HorizontalOptions="Center">
+                        <Label Text="&#xEA14;" FontFamily="MaterialIcons" FontSize="26"
+                               TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
                 </VerticalStackLayout>
+                <!-- Coach -->
                 <VerticalStackLayout Grid.Column="3" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
                     <VerticalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnCoachTapped"/>
                     </VerticalStackLayout.GestureRecognizers>
-                    <Label Text="&#128170;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="&#xEB43;" FontFamily="MaterialIcons" FontSize="24"
+                           TextColor="#6B7280" HorizontalOptions="Center"/>
                     <Label Text="Coach" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
+                <!-- Profil -->
                 <VerticalStackLayout Grid.Column="4" VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
                     <VerticalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnProfilTapped"/>
                     </VerticalStackLayout.GestureRecognizers>
-                    <Label Text="&#128100;" FontSize="24" HorizontalOptions="Center"/>
+                    <Label Text="&#xE7FD;" FontFamily="MaterialIcons" FontSize="24"
+                           TextColor="#6B7280" HorizontalOptions="Center"/>
                     <Label Text="Profil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
             </Grid>

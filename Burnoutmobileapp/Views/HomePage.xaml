@@ -173,7 +173,7 @@
         <Grid ColumnDefinitions="*,*,*,*,*" HeightRequest="88" Padding="0,0,0,20">
             <!-- Accueil - Active -->
             <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
-                <Label Text="🏠" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="&#xE88A;" FontFamily="MaterialIcons" FontSize="24" TextColor="#005da1" HorizontalOptions="Center"/>
                 <Label Text="Accueil" FontSize="10" FontAttributes="Bold" TextColor="#005da1" HorizontalOptions="Center"/>
             </VerticalStackLayout>
             
@@ -182,14 +182,14 @@
                 <VerticalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnAgendaTapped"/>
                 </VerticalStackLayout.GestureRecognizers>
-                <Label Text="📅" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="&#xE935;" FontFamily="MaterialIcons" FontSize="24" TextColor="#6B7280" HorizontalOptions="Center"/>
                 <Label Text="Agenda" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
             </VerticalStackLayout>
             
             <!-- Add Button (Center) -->
             <Grid Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center">
                 <Border StrokeThickness="0" StrokeShape="RoundRectangle 28" BackgroundColor="#005da1" HeightRequest="56" WidthRequest="56" VerticalOptions="Center">
-                    <Label Text="+" FontSize="32" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="&#xE145;" FontFamily="MaterialIcons" FontSize="30" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
                 </Border>
             </Grid>
             
@@ -198,7 +198,7 @@
                 <VerticalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnCoachTapped"/>
                 </VerticalStackLayout.GestureRecognizers>
-                <Label Text="💪" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="&#xEB43;" FontFamily="MaterialIcons" FontSize="24" TextColor="#6B7280" HorizontalOptions="Center"/>
                 <Label Text="Coach" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
             </VerticalStackLayout>
             
@@ -207,7 +207,7 @@
                 <VerticalStackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnProfilTapped"/>
                 </VerticalStackLayout.GestureRecognizers>
-                <Label Text="👤" FontSize="24" HorizontalOptions="Center"/>
+                <Label Text="&#xE7FD;" FontFamily="MaterialIcons" FontSize="24" TextColor="#6B7280" HorizontalOptions="Center"/>
                 <Label Text="Profil" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center"/>
             </VerticalStackLayout>
         </Grid>

@@ -2680,3 +2680,5 @@ C:\Users\SLAB28\RiderProjects\Burnout-application-mobile\Burnoutmobileapp\obj\De
 C:\Users\SLAB28\RiderProjects\Burnout-application-mobile\Burnoutmobileapp\obj\Debug\net10.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\SLAB28\RiderProjects\Burnout-application-mobile\Burnoutmobileapp\obj\Debug\net10.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\SLAB28\RiderProjects\Burnout-application-mobile\Burnoutmobileapp\obj\Debug\net10.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\SLAB28\RiderProjects\Burnout-application-mobile\Burnoutmobileapp\obj\Debug\net10.0-android\resizetizer\f\MaterialIcons-Regular.ttf
+C:\Users\SLAB28\RiderProjects\Burnout-application-mobile\Burnoutmobileapp\obj\Debug\net10.0-android\assets\MaterialIcons-Regular.ttf
