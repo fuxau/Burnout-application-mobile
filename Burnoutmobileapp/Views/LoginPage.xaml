@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Burnoutmobileapp.Views.LoginPage"
@@ -93,7 +93,11 @@
                 <Label Text="Rejoindre le Phoenix"
                        TextColor="#005da1"
                        FontSize="14"
-                       FontAttributes="Bold"/>
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRegisterTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

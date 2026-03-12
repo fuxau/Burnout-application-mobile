@@ -11,4 +11,9 @@ public partial class LoginPage : ContentPage
     {
         Application.Current!.Windows[0].Page = new AppShell();
     }
+
+    private void OnRegisterTapped(object sender, EventArgs e)
+    {
+        Application.Current!.Windows[0].Page = new RegisterPage();
+    }
 }

@@ -1,4 +1,4 @@
-using Burnoutmobileapp.Views;
+﻿using Burnoutmobileapp.Views;
 
 namespace Burnoutmobileapp;
 
@@ -15,5 +15,6 @@ public partial class AppShell : Shell
         Routing.RegisterRoute("workoutrpe", typeof(WorkoutRpePage));
         Routing.RegisterRoute("workoutsummary", typeof(WorkoutSummaryPage));
         Routing.RegisterRoute("feed", typeof(FeedPage));
+        Routing.RegisterRoute("register", typeof(RegisterPage));
     }
 }

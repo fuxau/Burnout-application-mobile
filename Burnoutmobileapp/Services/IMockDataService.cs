@@ -1,4 +1,4 @@
-using Burnoutmobileapp.Models;
+﻿using Burnoutmobileapp.Models;
 
 namespace Burnoutmobileapp.Services;
 
@@ -16,6 +16,7 @@ public interface IMockDataService
     Task<WorkoutSession> GetTodayWorkoutSessionAsync();
     Task<List<WorkoutSession>> GetSessionsForDateAsync(DateTime date);
     Task<bool> LoginAsync(string email, string password);
+    Task<bool> CreateAccountAsync(User user);
     Task<bool> RegisterForEventAsync(int eventId);
     Task<bool> JoinChallengeAsync(int challengeId);
 }

@@ -1,4 +1,4 @@
-using Burnoutmobileapp.Models;
+﻿using Burnoutmobileapp.Models;
 
 namespace Burnoutmobileapp.Services;
 
@@ -9,6 +9,7 @@ public class MockDataService : IMockDataService
     private readonly List<Challenge> _challenges;
     private readonly User _currentUser;
     private readonly Session _nextSession;
+    private readonly List<User> _registeredUsers = new();
 
     public MockDataService()
     {
@@ -201,7 +202,7 @@ public class MockDataService : IMockDataService
             ImageUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuAybvQxmSQuXivTHv21xeh35fRUsdZQO5YhYuIGnEFn2T0yfV1kUDli6rwsnHR6qB6x-MDQLlb1wk7v-j0zr9zjDuCwiBGGmba5gj3hd0xbwSiYPzgIDqfkPCgvBzBe5MqOCHTN1eGBTZ6V-O8oR92L9PaCCnwxa0bPyFcobtyQUTJfLGq9-MC1XLVQ7YCqFJRq3Q1rukSdJtM09ZVmBAG45WiCZe1-eD0onHoxM0uWjn6xkKZgigPDEfhNIv_mO2cjjwEwnj79E3T7",
             MembershipLevel = "Phoenix Elite",
             MemberSince = 2021,
-            Age = 29,
+            BirthDate = new DateTime(1995, 3, 22),
             Gender = "Homme",
             BloodType = "O+",
             FavoriteSport = "Crossfit & Powerlifting",
@@ -247,6 +248,19 @@ public class MockDataService : IMockDataService
     public Task<bool> LoginAsync(string email, string password)
     {
         return Task.FromResult(!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password));
+    }
+
+    public Task<bool> CreateAccountAsync(User user)
+    {
+        if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
+            return Task.FromResult(false);
+        var exists = _registeredUsers.Any(u => u.Email == user.Email);
+        if (exists) return Task.FromResult(false);
+        user.Id = _registeredUsers.Count + 100;
+        user.MembershipLevel = "Phoenix Member";
+        user.MemberSince = DateTime.Today.Year;
+        _registeredUsers.Add(user);
+        return Task.FromResult(true);
     }
 
     public Task<bool> RegisterForEventAsync(int eventId)

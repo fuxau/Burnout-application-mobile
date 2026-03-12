@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Burnoutmobileapp.ViewModels"
+             xmlns:models="clr-namespace:Burnoutmobileapp.Models"
+             x:Class="Burnoutmobileapp.Views.RegisterPage"
+             x:DataType="vm:RegisterViewModel"
+             BackgroundColor="#0a1628">
+    <ContentPage.Resources>
+        <Style x:Key="SH" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="#005da1"/>
+            <Setter Property="Margin" Value="0,10,0,2"/>
+        </Style>
+        <Style x:Key="FL" TargetType="Label">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="TextColor" Value="#9CA3AF"/>
+            <Setter Property="Margin" Value="0,4,0,0"/>
+        </Style>
+        <Style x:Key="IB" TargetType="Border">
+            <Setter Property="StrokeThickness" Value="1"/>
+            <Setter Property="Stroke" Value="#005da166"/>
+            <Setter Property="StrokeShape" Value="RoundRectangle 10"/>
+            <Setter Property="BackgroundColor" Value="#0d1f3c"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Padding="24,48,24,10" Spacing="4" BackgroundColor="#0a1628">
+            <Label Text="&#x1F525; Creer un compte" FontSize="22" FontAttributes="Bold"
+                   TextColor="White" HorizontalOptions="Center"/>
+            <Label Text="{Binding StepLabel}" FontSize="12" TextColor="#9CA3AF" HorizontalOptions="Center"/>
+            <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="5" Margin="0,6,0,0">
+                <BoxView Grid.Column="0" HeightRequest="4" CornerRadius="2" Color="#005da1"/>
+                <BoxView Grid.Column="1" HeightRequest="4" CornerRadius="2" Color="{Binding Step2Color}"/>
+                <BoxView Grid.Column="2" HeightRequest="4" CornerRadius="2" Color="{Binding Step3Color}"/>
+                <BoxView Grid.Column="3" HeightRequest="4" CornerRadius="2" Color="{Binding Step4Color}"/>
+                <BoxView Grid.Column="4" HeightRequest="4" CornerRadius="2" Color="{Binding Step5Color}"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="24,4,24,8" Spacing="0">
+
+                <!-- STEP 1 : Informations Generales -->
+                <VerticalStackLayout Spacing="6" IsVisible="{Binding IsStep1}">
+                    <Label Text="Informations Generales" Style="{StaticResource SH}"/>
+                    <Label Text="Presentation" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" Padding="10,4">
+                        <Editor Text="{Binding Presentation}" Placeholder="Decrivez-vous..."
+                                PlaceholderColor="#FFFFFF40" TextColor="White"
+                                BackgroundColor="Transparent" AutoSize="TextChanges" MinimumHeightRequest="56"/>
+                    </Border>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Prenom *" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="50">
+                                <Entry Text="{Binding FirstName}" Placeholder="Prenom"
+                                       PlaceholderColor="#FFFFFF40" TextColor="White"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Nom *" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="50">
+                                <Entry Text="{Binding LastName}" Placeholder="Nom"
+                                       PlaceholderColor="#FFFFFF40" TextColor="White"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                    <Label Text="Sexe" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Picker SelectedItem="{Binding Gender}" ItemsSource="{Binding GenderOptions}"
+                                TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                    </Border>
+                    <Label Text="Date de naissance" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <DatePicker Date="{Binding BirthDate}" Format="dd/MM/yyyy"
+                                    TextColor="White" BackgroundColor="Transparent"
+                                    VerticalOptions="Center" Margin="8,0"
+                                    MinimumDate="01/01/1920" MaximumDate="01/01/2015"/>
+                    </Border>
+                    <Label Text="Coordonnees" Style="{StaticResource SH}"/>
+                    <Label Text="Adresse mail *" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Entry Text="{Binding Email}" Placeholder="exemple@email.com"
+                               PlaceholderColor="#FFFFFF40" TextColor="White" Keyboard="Email"
+                               BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                    </Border>
+                    <Label Text="Numero de telephone" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Entry Text="{Binding Phone}" Placeholder="06.00.00.00.00"
+                               PlaceholderColor="#FFFFFF40" TextColor="White" Keyboard="Telephone"
+                               BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                    </Border>
+                    <Label Text="Adresse Postale" Style="{StaticResource SH}"/>
+                    <Label Text="Adresse" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Entry Text="{Binding Address}" Placeholder="Numero et nom de rue"
+                               PlaceholderColor="#FFFFFF40" TextColor="White"
+                               BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                    </Border>
+                    <Grid ColumnDefinitions="110,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Code Postal" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="50">
+                                <Entry Text="{Binding PostalCode}" Placeholder="73190"
+                                       PlaceholderColor="#FFFFFF40" TextColor="White" Keyboard="Numeric"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Ville" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="50">
+                                <Entry Text="{Binding City}" Placeholder="Ville"
+                                       PlaceholderColor="#FFFFFF40" TextColor="White"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                    <Label Text="Pays" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Picker SelectedItem="{Binding Country}" ItemsSource="{Binding CountryOptions}"
+                                TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                    </Border>
+                    <Label Text="Securite" Style="{StaticResource SH}"/>
+                    <Label Text="Mot de passe *" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Entry Text="{Binding Password}" Placeholder="Mot de passe"
+                               PlaceholderColor="#FFFFFF40" TextColor="White" IsPassword="True"
+                               BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                    </Border>
+                    <Label Text="Confirmer le mot de passe *" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Entry Text="{Binding ConfirmPassword}" Placeholder="Confirmer"
+                               PlaceholderColor="#FFFFFF40" TextColor="White" IsPassword="True"
+                               BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- STEP 2 : Situation Personnelle et Professionnelle -->
+                <VerticalStackLayout Spacing="6" IsVisible="{Binding IsStep2}">
+                    <Label Text="Situation Personnelle" Style="{StaticResource SH}"/>
+                    <Label Text="Statut marital" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Picker SelectedItem="{Binding MaritalStatus}" ItemsSource="{Binding MaritalStatusOptions}"
+                                TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                    </Border>
+                    <Label Text="Prenom du/de la partenaire (optionnel)" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Entry Text="{Binding PartnerName}" Placeholder="Prenom"
+                               PlaceholderColor="#FFFFFF40" TextColor="White"
+                               BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                    </Border>
+                    <Label Text="Fatigue vie personnelle - Physique / Mentale" Style="{StaticResource FL}"/>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="3">
+                            <Label Text="Physique" TextColor="#9CA3AF" FontSize="11" HorizontalOptions="Center"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="48">
+                                <Picker SelectedItem="{Binding PersonalPhysicalFatigue}" ItemsSource="{Binding FatigueOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="4,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="3">
+                            <Label Text="Mentale" TextColor="#9CA3AF" FontSize="11" HorizontalOptions="Center"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="48">
+                                <Picker SelectedItem="{Binding PersonalMentalFatigue}" ItemsSource="{Binding FatigueOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="4,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                    <Label Text="Commentaire (optionnel)" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" Padding="10,4">
+                        <Editor Text="{Binding PersonalFatigueComment}" Placeholder="Precisions..."
+                                PlaceholderColor="#FFFFFF40" TextColor="White"
+                                BackgroundColor="Transparent" AutoSize="TextChanges" MinimumHeightRequest="50"/>
+                    </Border>
+                    <Label Text="Situation Professionnelle" Style="{StaticResource SH}"/>
+                    <VerticalStackLayout BindableLayout.ItemsSource="{Binding ProfessionalActivities}" Spacing="5">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="models:ProfessionalActivity">
+                                <Border StrokeThickness="1" Stroke="#005da166" StrokeShape="RoundRectangle 10"
+                                        BackgroundColor="#0d1f3c" Padding="10,8">
+                                    <Grid ColumnDefinitions="*,38">
+                                        <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                            <Label Text="{Binding Name}" TextColor="White" FontAttributes="Bold" FontSize="13"/>
+                                            <Label FontSize="11">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Physique: " TextColor="#9CA3AF"/>
+                                                        <Span Text="{Binding PhysicalFatigue}" TextColor="#005da1"/>
+                                                        <Span Text="  Mentale: " TextColor="#9CA3AF"/>
+                                                        <Span Text="{Binding MentalFatigue}" TextColor="#005da1"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </VerticalStackLayout>
+                                        <Button Grid.Column="1" Text="x" BackgroundColor="Transparent" TextColor="#FF6B6B"
+                                                FontSize="15" Padding="0"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RegisterViewModel}}, Path=RemoveProfessionalActivityCommand}"
+                                                CommandParameter="{Binding .}"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                    <Border StrokeThickness="1" Stroke="#1e3a5f" StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#0d1f3c" Padding="12" Margin="0,4,0,0">
+                        <VerticalStackLayout Spacing="7">
+                            <Label Text="Ajouter une activite professionnelle"
+                                   FontSize="12" TextColor="#9CA3AF" FontAttributes="Bold"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="46">
+                                <Entry Text="{Binding NewProActivityName}"
+                                       Placeholder="Ex: Coach Sportif, Kinesitherapeute..."
+                                       PlaceholderColor="#FFFFFF40" TextColor="White"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                            </Border>
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                                <VerticalStackLayout Grid.Column="0" Spacing="3">
+                                    <Label Text="Fatigue Physique" TextColor="#9CA3AF" FontSize="11"/>
+                                    <Border Style="{StaticResource IB}" HeightRequest="44">
+                                        <Picker SelectedItem="{Binding NewProPhysicalFatigue}" ItemsSource="{Binding FatigueOptions}"
+                                                TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="4,0"/>
+                                    </Border>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" Spacing="3">
+                                    <Label Text="Fatigue Mentale" TextColor="#9CA3AF" FontSize="11"/>
+                                    <Border Style="{StaticResource IB}" HeightRequest="44">
+                                        <Picker SelectedItem="{Binding NewProMentalFatigue}" ItemsSource="{Binding FatigueOptions}"
+                                                TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="4,0"/>
+                                    </Border>
+                                </VerticalStackLayout>
+                            </Grid>
+                            <Button Text="Ajouter" Command="{Binding AddProfessionalActivityCommand}"
+                                    BackgroundColor="#005da1" TextColor="White" CornerRadius="8"
+                                    HeightRequest="40" FontSize="13"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Label Text="Commentaire fatigue professionnelle" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" Padding="10,4">
+                        <Editor Text="{Binding ProfessionalFatigueComment}" Placeholder="Precisions..."
+                                PlaceholderColor="#FFFFFF40" TextColor="White"
+                                BackgroundColor="Transparent" AutoSize="TextChanges" MinimumHeightRequest="50"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- STEP 3 : Antecedents Medicaux -->
+                <VerticalStackLayout Spacing="6" IsVisible="{Binding IsStep3}">
+                    <Label Text="Antecedents Medicaux" Style="{StaticResource SH}"/>
+                    <Label Text="Consommation de tabac" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Picker SelectedItem="{Binding TobaccoConsumption}" ItemsSource="{Binding ConsumptionOptions}"
+                                TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                    </Border>
+                    <Label Text="Consommation d'alcool" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Picker SelectedItem="{Binding AlcoholConsumption}" ItemsSource="{Binding ConsumptionOptions}"
+                                TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                    </Border>
+                    <Label Text="Consommation de drogue" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Picker SelectedItem="{Binding DrugConsumption}" ItemsSource="{Binding ConsumptionOptions}"
+                                TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                    </Border>
+                    <Label Text="Blessure/handicap limitant certains mouvements" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" Padding="10,4">
+                        <Editor Text="{Binding MovementLimitations}" Placeholder="Decrivez si applicable..."
+                                PlaceholderColor="#FFFFFF40" TextColor="White"
+                                BackgroundColor="Transparent" AutoSize="TextChanges" MinimumHeightRequest="50"/>
+                    </Border>
+                    <Label Text="Operation prevue les 6 derniers mois" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" Padding="10,4">
+                        <Editor Text="{Binding PlannedOperation}" Placeholder="Precisez si applicable..."
+                                PlaceholderColor="#FFFFFF40" TextColor="White"
+                                BackgroundColor="Transparent" AutoSize="TextChanges" MinimumHeightRequest="50"/>
+                    </Border>
+                    <Label Text="Maladie ou pathologie particuliere" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" Padding="10,4">
+                        <Editor Text="{Binding MedicalCondition}" Placeholder="Precisez si applicable..."
+                                PlaceholderColor="#FFFFFF40" TextColor="White"
+                                BackgroundColor="Transparent" AutoSize="TextChanges" MinimumHeightRequest="50"/>
+                    </Border>
+                    <Label Text="Traitement medical particulier" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" Padding="10,4">
+                        <Editor Text="{Binding SpecificMedicalTreatment}" Placeholder="Precisez si applicable..."
+                                PlaceholderColor="#FFFFFF40" TextColor="White"
+                                BackgroundColor="Transparent" AutoSize="TextChanges" MinimumHeightRequest="50"/>
+                    </Border>
+                    <Label Text="Frequences Cardiaques" Style="{StaticResource SH}"/>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="FC Maximale (bpm)" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="50">
+                                <Entry Text="{Binding MaxHeartRateText}" Placeholder="Ex: 190"
+                                       PlaceholderColor="#FFFFFF40" TextColor="White" Keyboard="Numeric"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="FC Repos (bpm)" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="50">
+                                <Entry Text="{Binding RestHeartRateText}" Placeholder="Ex: 60"
+                                       PlaceholderColor="#FFFFFF40" TextColor="White" Keyboard="Numeric"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- STEP 4 : Disponibilites et Qualite de Vie -->
+                <VerticalStackLayout Spacing="6" IsVisible="{Binding IsStep4}">
+                    <Label Text="Disponibilites Hebdomadaires" Style="{StaticResource SH}"/>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="Nb entrainements/semaine" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="50">
+                                <Entry Text="{Binding WeeklyTrainingCountText}" Placeholder="Ex: 5"
+                                       PlaceholderColor="#FFFFFF40" TextColor="White" Keyboard="Numeric"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label Text="Seances par entrainement" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="50">
+                                <Entry Text="{Binding SessionsPerTrainingText}" Placeholder="Ex: 2"
+                                       PlaceholderColor="#FFFFFF40" TextColor="White" Keyboard="Numeric"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                    <Label Text="Temps passe par seance" Style="{StaticResource FL}"/>
+                    <Border Style="{StaticResource IB}" HeightRequest="50">
+                        <Entry Text="{Binding TimePerSession}" Placeholder="Ex: 1h00"
+                               PlaceholderColor="#FFFFFF40" TextColor="White"
+                               BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                    </Border>
+                    <Label Text="Creneaux disponibles par jour" Style="{StaticResource SH}"/>
+                    <Label Text="6h  7h  8h  9h 10h 11h 12h 14h 15h 16h 17h 18h 19h 20h"
+                           TextColor="#6B7280" FontSize="9" Margin="65,0,0,0"/>
+                    <Border StrokeThickness="1" Stroke="#1e3a5f" StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#0d1f3c" Padding="10">
+                        <VerticalStackLayout Spacing="2">
+                            <Grid ColumnDefinitions="65,*">
+                                <Label Grid.Column="0" Text="Lundi" TextColor="White" FontSize="12" VerticalOptions="Center"/>
+                                <HorizontalStackLayout Grid.Column="1" Spacing="0">
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon0}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon1}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon2}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon3}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon4}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon5}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon6}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon7}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon8}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon9}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon10}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon11}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon12}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Mon13}" HeightRequest="28" WidthRequest="28"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                            <Grid ColumnDefinitions="65,*">
+                                <Label Grid.Column="0" Text="Mardi" TextColor="White" FontSize="12" VerticalOptions="Center"/>
+                                <HorizontalStackLayout Grid.Column="1" Spacing="0">
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue0}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue1}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue2}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue3}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue4}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue5}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue6}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue7}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue8}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue9}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue10}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue11}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue12}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Tue13}" HeightRequest="28" WidthRequest="28"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                            <Grid ColumnDefinitions="65,*">
+                                <Label Grid.Column="0" Text="Mercredi" TextColor="White" FontSize="12" VerticalOptions="Center"/>
+                                <HorizontalStackLayout Grid.Column="1" Spacing="0">
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed0}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed1}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed2}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed3}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed4}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed5}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed6}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed7}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed8}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed9}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed10}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed11}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed12}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Wed13}" HeightRequest="28" WidthRequest="28"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                            <Grid ColumnDefinitions="65,*">
+                                <Label Grid.Column="0" Text="Jeudi" TextColor="White" FontSize="12" VerticalOptions="Center"/>
+                                <HorizontalStackLayout Grid.Column="1" Spacing="0">
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu0}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu1}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu2}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu3}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu4}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu5}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu6}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu7}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu8}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu9}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu10}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu11}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu12}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Thu13}" HeightRequest="28" WidthRequest="28"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                            <Grid ColumnDefinitions="65,*">
+                                <Label Grid.Column="0" Text="Vendredi" TextColor="White" FontSize="12" VerticalOptions="Center"/>
+                                <HorizontalStackLayout Grid.Column="1" Spacing="0">
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri0}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri1}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri2}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri3}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri4}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri5}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri6}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri7}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri8}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri9}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri10}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri11}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri12}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Fri13}" HeightRequest="28" WidthRequest="28"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                            <Grid ColumnDefinitions="65,*">
+                                <Label Grid.Column="0" Text="Samedi" TextColor="White" FontSize="12" VerticalOptions="Center"/>
+                                <HorizontalStackLayout Grid.Column="1" Spacing="0">
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat0}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat1}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat2}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat3}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat4}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat5}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat6}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat7}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat8}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat9}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat10}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat11}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat12}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sat13}" HeightRequest="28" WidthRequest="28"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                            <Grid ColumnDefinitions="65,*">
+                                <Label Grid.Column="0" Text="Dimanche" TextColor="White" FontSize="12" VerticalOptions="Center"/>
+                                <HorizontalStackLayout Grid.Column="1" Spacing="0">
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun0}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun1}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun2}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun3}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun4}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun5}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun6}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun7}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun8}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun9}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun10}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun11}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun12}" HeightRequest="28" WidthRequest="28"/>
+                                    <CheckBox Color="#005da1" IsChecked="{Binding Sun13}" HeightRequest="28" WidthRequest="28"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Label Text="Qualite de Vie" Style="{StaticResource SH}"/>
+                    <Label Text="Sommeil" TextColor="White" FontSize="13" FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="3">
+                            <Label Text="Qualite" TextColor="#9CA3AF" FontSize="11" HorizontalOptions="Center"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="48">
+                                <Picker SelectedItem="{Binding SleepQuality}" ItemsSource="{Binding SleepQualityOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="4,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="3">
+                            <Label Text="Quantite" TextColor="#9CA3AF" FontSize="11" HorizontalOptions="Center"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="48">
+                                <Picker SelectedItem="{Binding SleepQuantity}" ItemsSource="{Binding SleepQualityOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="4,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                    <Label Text="Alimentation" TextColor="White" FontSize="13" FontAttributes="Bold" Margin="0,4,0,0"/>
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0" Spacing="3">
+                            <Label Text="Qualite" TextColor="#9CA3AF" FontSize="11" HorizontalOptions="Center"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="48">
+                                <Picker SelectedItem="{Binding DietQuality}" ItemsSource="{Binding DietQualityOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="4,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="3">
+                            <Label Text="Quantite" TextColor="#9CA3AF" FontSize="11" HorizontalOptions="Center"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="48">
+                                <Picker SelectedItem="{Binding DietQuantity}" ItemsSource="{Binding DietQualityOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="4,0"/>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- STEP 5 : Activites Physiques et Sportives -->
+                <VerticalStackLayout Spacing="6" IsVisible="{Binding IsStep5}">
+                    <Label Text="Activites Physiques et Sportives" Style="{StaticResource SH}"/>
+                    <VerticalStackLayout BindableLayout.ItemsSource="{Binding SportActivities}" Spacing="5">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="models:SportActivity">
+                                <Border StrokeThickness="1" Stroke="#005da166" StrokeShape="RoundRectangle 10"
+                                        BackgroundColor="#0d1f3c" Padding="10,8">
+                                    <Grid ColumnDefinitions="*,38">
+                                        <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                            <Label Text="{Binding Name}" TextColor="White" FontAttributes="Bold" FontSize="13"/>
+                                            <Label FontSize="11">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Freq: " TextColor="#9CA3AF"/>
+                                                        <Span Text="{Binding WeeklyFrequency}" TextColor="#005da1"/>
+                                                        <Span Text="  Duree: " TextColor="#9CA3AF"/>
+                                                        <Span Text="{Binding DailyFrequency}" TextColor="#005da1"/>
+                                                        <Span Text="  Niveau: " TextColor="#9CA3AF"/>
+                                                        <Span Text="{Binding Level}" TextColor="#005da1"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </VerticalStackLayout>
+                                        <Button Grid.Column="1" Text="x" BackgroundColor="Transparent" TextColor="#FF6B6B"
+                                                FontSize="15" Padding="0"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RegisterViewModel}}, Path=RemoveSportActivityCommand}"
+                                                CommandParameter="{Binding .}"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                    <Border StrokeThickness="1" Stroke="#1e3a5f" StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#0d1f3c" Padding="12" Margin="0,4,0,0">
+                        <VerticalStackLayout Spacing="7">
+                            <Label Text="Ajouter une activite sportive"
+                                   FontSize="12" TextColor="#9CA3AF" FontAttributes="Bold"/>
+                            <Label Text="Activite" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="46">
+                                <Entry Text="{Binding NewSportName}" Placeholder="Ex: CrossFit, Natation..."
+                                       PlaceholderColor="#FFFFFF40" TextColor="White"
+                                       BackgroundColor="Transparent" VerticalOptions="Center" Margin="10,0"/>
+                            </Border>
+                            <Label Text="Frequence Hebdomadaire" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="46">
+                                <Picker SelectedItem="{Binding NewSportWeeklyFreq}" ItemsSource="{Binding WeeklyFreqOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                            </Border>
+                            <Label Text="Duree par session" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="46">
+                                <Picker SelectedItem="{Binding NewSportDailyFreq}" ItemsSource="{Binding DailyFreqOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                            </Border>
+                            <Label Text="Niveau Sportif" Style="{StaticResource FL}"/>
+                            <Border Style="{StaticResource IB}" HeightRequest="46">
+                                <Picker SelectedItem="{Binding NewSportLevel}" ItemsSource="{Binding SportLevelOptions}"
+                                        TextColor="White" BackgroundColor="Transparent" VerticalOptions="Center" Margin="8,0"/>
+                            </Border>
+                            <Button Text="Ajouter l'activite" Command="{Binding AddSportActivityCommand}"
+                                    BackgroundColor="#005da1" TextColor="White" CornerRadius="8"
+                                    HeightRequest="40" FontSize="13"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border StrokeThickness="1" Stroke="#1e3a5f" StrokeShape="RoundRectangle 12"
+                            BackgroundColor="#0d1f3c" Padding="14" Margin="0,8,0,0">
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="Recapitulatif" TextColor="#005da1" FontSize="14" FontAttributes="Bold"/>
+                            <Label FontSize="13">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Nom : " TextColor="#9CA3AF"/>
+                                        <Span Text="{Binding FirstName}" TextColor="White"/>
+                                        <Span Text=" " TextColor="White"/>
+                                        <Span Text="{Binding LastName}" TextColor="White"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label FontSize="13">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Email : " TextColor="#9CA3AF"/>
+                                        <Span Text="{Binding Email}" TextColor="White"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label FontSize="13">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Ville : " TextColor="#9CA3AF"/>
+                                        <Span Text="{Binding City}" TextColor="White"/>
+                                        <Span Text=", " TextColor="#9CA3AF"/>
+                                        <Span Text="{Binding Country}" TextColor="White"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <BoxView HeightRequest="12" Color="Transparent"/>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Bottom navigation -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,*" Padding="24,10,24,30" ColumnSpacing="12"
+              BackgroundColor="#0a1628">
+            <Button Grid.Column="0" x:Name="BackBtn"
+                    Text="{Binding BackButtonText}"
+                    Clicked="OnBackClicked"
+                    BackgroundColor="#1e3a5f" TextColor="White"
+                    CornerRadius="12" HeightRequest="52" FontSize="15"/>
+            <Button Grid.Column="1" x:Name="NextBtn"
+                    Text="{Binding NextButtonText}"
+                    Clicked="OnNextClicked"
+                    BackgroundColor="#005da1" TextColor="White"
+                    CornerRadius="12" HeightRequest="52" FontSize="15" FontAttributes="Bold"/>
+        </Grid>
+
+    </Grid>
+</ContentPage>
